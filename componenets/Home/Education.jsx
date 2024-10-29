@@ -18,7 +18,7 @@ const Education = () => {
       startyear: "2020",
       endyear: "2023",
       description:
-        "I had done Bachelor's degree in Information technology at Sahyog College of management studies, Panvel, where I am honing my skills in computer science and information technology.",
+        "I had done Bachelor's degree in Information technology at Sahyog College of management studies, Thane, where I am honing my skills in computer science and information technology.",
     },
     {
       image: "/education/abhinav.jpeg",
