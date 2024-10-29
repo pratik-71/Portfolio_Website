@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import ImageViewer from "../common/ImageViewer";
 
@@ -8,7 +8,7 @@ const Certificates = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMarksheet, setSelectedMarksheet] = useState("");
 
-  const Certificate = [
+  const Certificate = useMemo(() => [
     {
       name: "Udacity Gen-AI with Google Cloud",
       image: "/certificates/genAi.jpg",
@@ -21,7 +21,7 @@ const Certificates = () => {
       name: "Tapop Internship Certificate",
       image: "/certificates/tapop.png",
     },
-  ];
+  ], []);
 
   const scrollRef = useRef(null);
 

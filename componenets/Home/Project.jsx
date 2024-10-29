@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import ImageViewer from '../common/ImageViewer';
 
 const Project = () => {
@@ -7,14 +7,14 @@ const Project = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
-  const openImageModal = (image)=>{
-    setIsModalOpen(true)
-    setSelectedImage(image)
-  }
+  const openImageModal = useCallback((image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  }, []);
 
-  const closeImageModal = () => {
+  const closeImageModal = useCallback(() => {
     setIsModalOpen(false);
-  };
+  }, []);
 
 
   const projects = [
@@ -50,7 +50,7 @@ const Project = () => {
               src={pro.image}
               onClick={()=>openImageModal(pro.image)}
               alt="Project Image"
-              className="w-full h-[200px] object-cover rounded-t-lg mb-4"
+              className="w-full h-[200px] object-contain md:object-cover rounded-t-lg mb-4"
             />
             <h3 className="text-lg font-bold text-white mb-2 text-center">{pro.name}</h3>
 
