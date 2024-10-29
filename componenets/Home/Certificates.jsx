@@ -64,23 +64,29 @@ const Certificates = () => {
         >
           {Certificate.map((edu, index) => (
             <div
-              key={index}
-              className="min-w-[220px] w-full max-w-[550px] min-h-[250px] md:min-h-[420px] bg-gradient-to-r from-[#310c43] to-[#190128] backdrop-blur-lg border border-gray-500 shadow-md hover:shadow-2xl rounded-lg flex flex-col items-center gap-2 transition-transform duration-300 transform hover:-translate-y-4  hover:border-purple-400"
-              >
-              <img
+            key={index}
+            className="min-w-[220px] w-full max-w-[550px] min-h-[250px] md:min-h-[420px] bg-gradient-to-r from-[#310c43] to-[#190128] backdrop-blur-lg border border-gray-500 shadow-md hover:shadow-2xl rounded-lg flex flex-col items-center gap-2 transition-transform duration-300 transform hover:-translate-y-4 hover:border-purple-400"
+          >
+            <div className="relative w-full min-h-[200px] md:min-h-[290px] overflow-hidden rounded-md">
+              <Image
                 src={edu.image}
                 alt={edu.name}
-                className="object-contain rounded-md  hover:shadow-md hover:shadow-purple-300 transition-transform transform w-full min-h-[200px] md:min-h-[290px]"
+                layout="fill" 
+                objectFit="contain" 
+                className="rounded-md transition-transform hover:shadow-md hover:shadow-purple-300"
               />
-              <p className="text-center text-white font-semibold text-lg mt-3">
-                {edu.name}
-              </p>
-              <button
-              className="bg-purple-900 text-white border-2 hover:border-0 py-2 px-4 border-purple-950 rounded-lg  hover:shadow-md hover:shadow-purple-300 mb-4 "
-               onClick={() => openMarksheetModal(edu.image)}>
-                View Certificate
-              </button>
             </div>
+            <p className="text-center text-white font-semibold text-lg mt-3">
+              {edu.name}
+            </p>
+            <button
+              className="bg-purple-900 text-white border-2 hover:border-0 py-2 px-4 border-purple-950 rounded-lg hover:shadow-md hover:shadow-purple-300 mb-4"
+              onClick={() => openMarksheetModal(edu.image)}
+            >
+              View Certificate
+            </button>
+          </div>
+          
           ))}
         </div>
 

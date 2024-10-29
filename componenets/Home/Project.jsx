@@ -1,9 +1,9 @@
 "use client";
-import React, { useCallback, useState } from 'react';
-import ImageViewer from '../common/ImageViewer';
+import React, { useCallback, useState } from "react";
+import ImageViewer from "../common/ImageViewer";
+import Image from "next/image";
 
 const Project = () => {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
 
@@ -15,7 +15,6 @@ const Project = () => {
   const closeImageModal = useCallback(() => {
     setIsModalOpen(false);
   }, []);
-
 
   const projects = [
     {
@@ -38,7 +37,9 @@ const Project = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#440b45] to-[#2a0132] flex flex-col items-center py-10 px-6 md:px-16">
-      <p className="text-white text-3xl md:text-4xl font-extrabold mb-8">- Projects -</p>
+      <p className="text-white text-3xl md:text-4xl font-extrabold mb-8">
+        - Projects -
+      </p>
 
       <div className="flex flex-col sm:flex-row gap-8 w-full max-w-screen-lg">
         {projects.map((pro, index) => (
@@ -46,16 +47,23 @@ const Project = () => {
             key={index}
             className="relative bg-white/10 backdrop-blur-lg rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 flex flex-col w-full sm:w-[500px] h-[500px] overflow-hidden cursor-pointer"
           >
-            <img
+            <Image
               src={pro.image}
-              onClick={()=>openImageModal(pro.image)}
+              onClick={() => openImageModal(pro.image)}
               alt="Project Image"
-              className="w-full h-[200px] object-contain md:object-cover rounded-t-lg mb-4"
+              layout="responsive"
+              width={100}
+              height={100}
+              className="object-contain md:object-cover rounded-t-lg mb-4"
             />
-            <h3 className="text-lg font-bold text-white mb-2 text-center">{pro.name}</h3>
+
+            <h3 className="text-lg font-bold text-white mb-2 text-center">
+              {pro.name}
+            </h3>
 
             <div className="flex">
-              <div className="text-sm flex flex-wrap gap-2 text-gray-100 font-semibold mb-2 px-2 text-nowrap">Technologies Used:
+              <div className="text-sm flex flex-wrap gap-2 text-gray-100 font-semibold mb-2 px-2 text-nowrap">
+                Technologies Used:
                 {pro.technology.split(", ").map((tech, idx) => (
                   <div
                     key={idx}
@@ -65,11 +73,12 @@ const Project = () => {
                   </div>
                 ))}
               </div>
+            </div>
 
-            </div> 
+            <p className="text-sm text-gray-300 px-4 mt-4 pb-2">
+              {pro.description}
+            </p>
 
-            <p className="text-sm text-gray-300 px-4 mt-4 pb-2">{pro.description}</p>
-            
             {/* GitHub Button */}
             <a
               href={pro.githubLink}
