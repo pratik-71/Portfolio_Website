@@ -52,25 +52,24 @@ const Navbar = () => {
             Projects
           </Link>
           <Link
-            href="#contact"
+            href="#experience"
             className="hover:text-purple-700 duration-100 scroll-smooth"
           >
-            Contact
+            Experience
           </Link>
           {/* Dropdown for Academics */}
 
-          <div className="relative" 
-          onClick={()=>setIsDropdownOpen(!isDropdownOpen)}
+          <div
+            className="relative"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            <button
-              className="hover:text-purple-700 duration-100 flex justify-center items-center gap-2"
-            >
+            <button className="hover:text-purple-700 duration-100 flex justify-center items-center gap-2">
               Academics <FaAngleDown />
             </button>
             {isDropdownOpen && (
               <div className="fixed top-16 right-[1/3] transform mt-2 w-40 bg-gray-800 text-white backdrop-blur-md rounded-md shadow-lg z-50 border-2 border-black">
                 <Link
-                   href="#education"
+                  href="#education"
                   className="block px-4 py-2 hover:bg-purple-100/50 duration-100"
                   onClick={() => setIsDropdownOpen(false)}
                 >
@@ -82,6 +81,13 @@ const Navbar = () => {
                   onClick={() => setIsDropdownOpen(false)}
                 >
                   Certificates
+                </Link>
+                <Link
+                  href="#contact"
+                  className="block px-4 py-2 hover:bg-purple-100/50 duration-100"
+                  onClick={() => setIsDropdownOpen(false)}
+                >
+                  Contact
                 </Link>
               </div>
             )}
@@ -123,7 +129,10 @@ const Navbar = () => {
             <button onClick={() => setopennav(!opennav)}>
               <IoClose className="text-[25px] float-right hover:text-red-500" />
             </button>
-            <div className="flex flex-col justify-center items-center gap-[20px]" onClick={() => setopennav(!opennav)}>
+            <div
+              className="flex flex-col justify-center items-center gap-[20px]"
+              onClick={() => setopennav(!opennav)}
+            >
               <Link
                 href="#about"
                 className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
@@ -135,6 +144,12 @@ const Navbar = () => {
                 className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
               >
                 Skills
+              </Link>
+              <Link
+                href="#experience"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+              >
+                Experience
               </Link>
               <Link
                 href="#project"

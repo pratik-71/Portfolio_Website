@@ -7,6 +7,7 @@ import Education from "@/componenets/Home/Education";
 import Certificates from "@/componenets/Home/Certificates";
 import Project from "@/componenets/Home/Project";
 import Contact from "@/componenets/Home/Contact";
+import Experience from "@/componenets/Home/Experience";
 
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
       <section id="skills">
         <Skills/>
       </section>
+      <section id="experience">
+        <Experience/>
+      </section>
       <section id="project">
         <Project/>
       </section>
@@ -32,6 +36,7 @@ export default function Home() {
       <section id="contact">
         <Contact/>
       </section>
+      
      
     </div>
   );
