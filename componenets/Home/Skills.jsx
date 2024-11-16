@@ -41,6 +41,10 @@ const Skills = () => {
       image: "/icons/exress.png",
       name: "Express Js",
     },
+    {
+      image: "/icons/api.png",
+      name: "REST API",
+    },
   ];
   const database = [
     {

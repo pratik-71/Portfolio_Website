@@ -70,7 +70,7 @@ const Experience = () => {
                 className="bg-purple-900 text-white rounded-xl border-2 border-purple-950 shadow-xl py-2 px-4 w-auto self-center md:self-start text-sm"
                 aria-label={`View marksheet for ${data.company}`}
               >
-                View Marksheet
+                View Certificate
             </button>
           </div>
         ))}
