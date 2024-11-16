@@ -55,6 +55,10 @@ const Skills = () => {
       image: "/icons/postgresql.png",
       name: "Postgre-SQL",
     },
+    {
+      image: "/icons/firebase.png",
+      name: "Firebase",
+    },
   ];
   const languages = [
     {
