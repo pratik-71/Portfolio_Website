@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useCallback } from "react";
-import pratik from "@/public/pratik.jpeg";
+import pratik from "@/public/pratik.jpg";
 import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
 
@@ -48,7 +48,7 @@ const SocialMediaButton = React.memo(({ item }) => (
 
 const PersonalInfo = () => {
   const openResume = useCallback(() => {
-    window.open("/PRATIK DABHADE RESUME.pdf", "_blank");
+    window.open("/Pratik Dabhade.pdf", "_blank");
   }, []);
 
   return (

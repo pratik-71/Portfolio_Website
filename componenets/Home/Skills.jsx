@@ -42,9 +42,17 @@ const Skills = () => {
       name: "Express Js",
     },
     {
+      image: "/icons/golang.png",
+      name: "Golang",
+    },
+    {
       image: "/icons/api.png",
       name: "REST API",
     },
+    {
+      image: "/icons/api.png",
+      name:"Third Party API",
+    }
   ];
   const database = [
     {

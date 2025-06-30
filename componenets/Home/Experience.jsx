@@ -29,13 +29,28 @@ const Experience = () => {
       "Made API calls to backend and third-party services for seamless data integration."
     ],
     certificate: "/certificates/tapop.png"
-  }];
+  },
+  {
+    company: "Persist Ventures",
+    position: "Full Stack Developer and CTO",
+    image: "/experience/Persist.jpeg",
+    date: "12 Dec 2024 - Present",
+    description: [
+      "Led daily stand-up meetings to discuss progress, address blockers, and align on next steps with the development team.",
+      "Developed full-stack features, handling both frontend UI and backend logic, and ensured smooth API integration.",
+      "Translated responsive Figma designs into production-ready code, maintaining pixel-perfect layouts across devices.",
+      "Collaborated with stakeholders, investors, and partner organizations to present product pitches and align business goals with technical execution."
+    ],
+      certificate: "/certificates/persist Offer letter.png"
+  },
+
+];
 
   return (
     <div className="bg-gradient-to-b from-[#310c43] to-[#0e000d] flex flex-col items-center py-10 gap-6">
       <h1 className="text-white font-extrabold text-3xl md:text-4xl">- Experience -</h1>
 
-      <div className="flex flex-wrap px-6 justify-center items-center">
+      <div className="flex flex-col px-6 gap-8 justify-center items-center">
         {experience_data.map((data, index) => (
           <div
             key={index}

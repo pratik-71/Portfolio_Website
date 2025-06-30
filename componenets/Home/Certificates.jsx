@@ -21,6 +21,10 @@ const Certificates = () => {
       name: "Tapop Internship Certificate",
       image: "/certificates/tapop.png",
     },
+    {
+      name: "Persist Ventures Offer Letter",
+      image: "/certificates/persist Offer letter.png",
+    },
   ], []);
 
   const scrollRef = useRef(null);
