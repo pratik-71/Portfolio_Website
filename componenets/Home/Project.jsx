@@ -36,62 +36,56 @@ const Project = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#440b45] to-[#2a0132] flex flex-col items-center py-10 px-6 md:px-16">
-      <p className="text-white text-3xl md:text-4xl font-extrabold mb-8">
-        - Projects -
-      </p>
-
-      <div className="flex flex-col sm:flex-row gap-8 w-full max-w-screen-lg">
+    <div className="flex flex-col items-center py-10 px-2 md:px-8">
+      <h1 className="text-4xl font-extrabold mb-8 text-purple-400">- Projects -</h1>
+      <div className="flex flex-col md:flex-row flex-wrap gap-10 w-full max-w-6xl justify-center items-stretch">
         {projects.map((pro, index) => (
           <div
             key={index}
-            className="relative bg-white/10 backdrop-blur-lg rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 flex flex-col w-full sm:w-[500px] h-[500px] overflow-hidden cursor-pointer"
+            className="relative group bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col w-full max-w-[420px] min-h-[540px] overflow-hidden transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 cursor-pointer"
           >
-            <Image
-              src={pro.image}
-              onClick={() => openImageModal(pro.image)}
-              alt="Project Image"
-              layout="responsive"
-              width={100}
-              height={100}
-              className="object-contain md:object-cover rounded-t-lg mb-4"
-            />
-
-            <h3 className="text-lg font-bold text-white mb-2 text-center">
-              {pro.name}
-            </h3>
-
-            <div className="flex">
-              <div className="text-sm flex flex-wrap gap-2 text-gray-100 font-semibold mb-2 px-2 text-nowrap">
-                Technologies Used:
+            <div className="w-full h-56 overflow-hidden">
+              <Image
+                src={pro.image}
+                onClick={() => openImageModal(pro.image)}
+                alt="Project Image"
+                width={400}
+                height={224}
+                className="object-cover w-full h-full rounded-t-2xl transition-all duration-200 hover:scale-105"
+                style={{ cursor: 'zoom-in' }}
+              />
+            </div>
+            <div className="flex flex-col flex-1 px-6 py-4">
+              <h3 className="text-2xl font-bold text-white mb-2 text-center group-hover:text-purple-300 transition-colors duration-300">
+                {pro.name}
+              </h3>
+              <div className="flex flex-wrap justify-center gap-2 mb-3">
                 {pro.technology.split(", ").map((tech, idx) => (
-                  <div
+                  <span
                     key={idx}
-                    className="px-1 md:px-3 py-1 bg-gray-900 text-white rounded-md text-sm"
+                    className="bg-gradient-to-r from-[#2a0a3c] to-[#0a1a2f] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md border border-white/10 hover:scale-110 hover:shadow-purple-500/30 transition-all duration-200"
                   >
                     {tech}
-                  </div>
+                  </span>
                 ))}
               </div>
+              <p className="text-sm text-gray-300 text-center mb-6 flex-1">
+                {pro.description}
+              </p>
+              <div className="flex justify-center mt-auto">
+                <a
+                  href={pro.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-6 py-2 font-semibold text-base shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
-
-            <p className="text-sm text-gray-300 px-4 mt-4 pb-2">
-              {pro.description}
-            </p>
-
-            {/* GitHub Button */}
-            <a
-              href={pro.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-4 left-4 bg-purple-950 text-white px-4 py-2 rounded-md text-sm hover:bg-gray-700 transition"
-            >
-              GitHub
-            </a>
           </div>
         ))}
       </div>
-
       <ImageViewer
         isOpen={isModalOpen}
         onClose={closeImageModal}

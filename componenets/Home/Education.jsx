@@ -60,67 +60,65 @@ const Education = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#310c43] to-[#151616] flex flex-col items-center py-5 gap-6">
-      <h1 className="text-white font-extrabold text-3xl md:text-4xl">Education</h1>
-
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col items-center justify-center py-10 gap-8 px-2">
+      <h1 className="text-4xl font-extrabold  mb-6 text-purple-400">Education</h1>
+      <div className="flex items-center justify-center gap-2">
         <button
           onClick={() => scroll("left")}
-          className="bg-indigo-500 text-white py-3 px-3 rounded-full hover:bg-purple-400 transition-transform transform hover:scale-110"
+          className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-3 rounded-full hover:bg-purple-500 transition-transform hover:scale-110 shadow-lg"
           aria-label="Scroll left"
         >
           <FaChevronLeft />
         </button>
-
         <div
           ref={scrollRef}
-          className="flex gap-6 no-scrollbar overflow-x-scroll scroll-smooth w-[70vw] md:w-[90vw] py-4"
+          className="flex gap-8 no-scrollbar overflow-x-scroll scroll-smooth w-[70vw] md:w-[90vw] py-4 mx-auto justify-center"
         >
           {education.map((edu, index) => (
             <div
-              key={edu.name} // Unique key for better performance
-              className="w-full min-w-[240px] max-w-[600px] min-h-[300px] bg-white/10 backdrop-blur-lg border border-gray-500 shadow-lg hover:shadow-2xl rounded-lg py-6 px-2 flex flex-col gap-4 transition-transform duration-300 transform hover:-translate-y-2"
+              key={edu.name}
+              className="min-w-[280px] max-w-[400px] min-h-[340px] bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col justify-between px-6 py-7 transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 group"
             >
               <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-                <Image
-                  src={edu.image}
-                  height={80}
-                  width={100}
-                  alt={`Image of ${edu.name}`}
-                  className="object-cover rounded-md border border-gray-400"
-                  priority // Optimize loading for important images
-                />
+                <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-900/40 to-blue-900/30 rounded-2xl shadow-md overflow-hidden">
+                  <Image
+                    src={edu.image}
+                    height={64}
+                    width={64}
+                    alt={`Logo of ${edu.name}`}
+                    className="object-contain w-16 h-16"
+                    priority
+                  />
+                </div>
                 <div className="flex flex-col gap-1 text-white text-center md:text-left">
-                  <h2 className="font-bold text-2xl md:text-xl">{edu.name}</h2>
-                  <p className="text-gray-300 text-sm md:text-md">{edu.program}</p>
+                  <h2 className="font-extrabold text-xl md:text-2xl group-hover:text-purple-300 transition-colors duration-300">{edu.name}</h2>
+                  <p className="text-purple-200 text-sm md:text-md font-semibold">{edu.program}</p>
                 </div>
               </div>
-
               <div className="text-white mt-2 text-center md:text-left">
-                <p className="text-md md:text-lg italic">Grade: {edu.grade}</p>
+                <p className="text-md md:text-lg italic text-purple-300 font-bold">Grade: {edu.grade}</p>
                 <p className="text-xs md:text-sm text-gray-300 mt-2">{edu.description}</p>
               </div>
-
-              <button
-                onClick={() => openMarksheetModal(edu.marksheet)}
-                className="bg-purple-900 text-white rounded-xl border-2 border-purple-950 shadow-xl py-2 px-4 w-auto self-center md:self-start text-sm"
-                aria-label={`View marksheet for ${edu.name}`}
-              >
-                View Marksheet
-              </button>
+              <div className="flex w-full justify-center">
+                <button
+                  onClick={() => openMarksheetModal(edu.marksheet)}
+                  className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-6 py-2 font-semibold text-base shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                  aria-label={`View marksheet for ${edu.name}`}
+                >
+                  View Marksheet
+                </button>
+              </div>
             </div>
           ))}
         </div>
-
         <button
           onClick={() => scroll("right")}
-          className="bg-indigo-500 text-white p-3 rounded-full hover:bg-purple-400 transition-transform transform hover:scale-110"
+          className="bg-gradient-to-r from-purple-700 to-blue-700 text-white p-3 rounded-full hover:bg-purple-500 transition-transform hover:scale-110 shadow-lg"
           aria-label="Scroll right"
         >
           <FaChevronRight />
         </button>
       </div>
-
       <ImageViewer
         isOpen={isModalOpen}
         onClose={closeMarksheetModal}

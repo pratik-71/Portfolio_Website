@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
 import React, { useCallback } from "react";
-import pratik from "@/public/pratik.jpg";
 import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
 
@@ -31,20 +29,25 @@ const social_media = [
 const SocialMediaButton = React.memo(({ item }) => (
   <Link href={item.link} target="_blank" rel="noopener noreferrer">
     <button
-      className="bg-gradient-to-r hover:scale-105 duration-150 flex flex-col from-[#270a36] to-[#03213f] w-[20vw] max-w-[110px] py-2 rounded-xl items-center justify-center gap-3 transition-all group"
+      className="group relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-2xl p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10"
       title={item.text}
     >
-      <img
-        src={item.image}
-        className="w-[35%] max-w-[86px] h-auto max-h-[56px]"
-        alt={item.text}
-      />
-      <p className="text-center" style={{ fontSize: "clamp(5px, 3vw, 16px)" }}>
-        {item.text}
-      </p>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="relative z-10 flex flex-col items-center gap-3">
+        <img
+          src={item.image}
+          className="w-8 h-8 object-contain transition-all duration-300"
+          alt={item.text}
+        />
+        <p className="text-xs font-medium text-white/80 group-hover:text-white transition-colors duration-300">
+          {item.text}
+        </p>
+      </div>
     </button>
   </Link>
 ));
+
+SocialMediaButton.displayName = 'SocialMediaButton';
 
 const PersonalInfo = () => {
   const openResume = useCallback(() => {
@@ -52,40 +55,68 @@ const PersonalInfo = () => {
   }, []);
 
   return (
-    <div className="bg-gray-900 md:h-screen px-4 md:px-10 pt-14">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full items-center">
-        {/* Left Section (Text) */}
-        <div className="text-white flex flex-col justify-center items-center md:items-start text-center md:text-left order-2 md:order-1">
-          <h1 className="font-extrabold text-[clamp(24px,5vw,45px)]">Hi, I am</h1>
-          <h1 className="font-extrabold text-[clamp(24px,5vw,45px)]">Pratik Dabhade</h1>
-          <h3 className="font-extrabold flex gap-3 text-center md:text-left text-nowrap text-[clamp(20px,4vw,40px)]">
-            I am
-            <span className="text-purple-800">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+
+      <div className="max-w-4xl w-full relative z-10">
+        {/* Main Content Container */}
+        <div className="text-center space-y-6 pt-8">
+          {/* Greeting */}
+          <div className="space-y-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
+              Hi, I&apos;m{" "}
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                Pratik Dabhade
+              </span>
+            </h1>
+          
+          </div>
+
+          {/* Role Animation */}
+          <div className="flex items-center justify-center gap-3 text-xl md:text-2xl lg:text-3xl font-semibold">
+            <span className="text-white/70">I&apos;m a</span>
+            <span className="text-purple-400">
               <TypeAnimation
-                sequence={["Full Stack Developer", 1000, "Web Developer", 1000, "Freelancer", 1000]}
+                sequence={[
+                  "Full Stack Developer",
+                  2000,
+                  "Web Developer", 
+                  2000,
+                  "Freelancer",
+                  2000,
+                  
+                ]}
                 wrapper="span"
-                speed={40}
-                style={{ fontSize: "inherit", display: "inline-block" }}
+                speed={50}
+                style={{ display: "inline-block" }}
                 repeat={Infinity}
               />
             </span>
-          </h3>
-          <p className="text-gray-400 mt-5" style={{ fontSize: "clamp(12px,2.5vw,20px)" }}>
-            I am a motivated and versatile individual, always eager to take on new challenges.
-            With a passion for learning, I am dedicated to delivering high-quality results. With a
-            positive attitude and a growth mindset, I am ready to make a meaningful contribution and
-            achieve great things.
-          </p>
+          </div>
 
-          <button
-            className="rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white w-full px-5 py-3 my-5"
-            onClick={openResume}
-          >
-            Check Resume
-          </button>
+          {/* Description */}
+          <div className="max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/60 leading-relaxed">
+              I am a motivated and versatile individual, always eager to take on new challenges.
+              With a passion for learning and a dedication to delivering high-quality results, 
+              I bring a positive attitude and growth mindset to every project.
+            </p>
+          </div>
 
-          <div className="flex items-center justify-center md:justify-start w-full py-2 mt-0 md:mt-5">
-            <div className="flex gap-4 md:gap-8">
+          {/* CTA Button */}
+          <div className="pt-4">
+            <button
+              onClick={openResume}
+              className="group relative overflow-hidden bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+            >
+              <span className="relative z-10">View Resume</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+          </div>
+
+          {/* Social Media */}
+          <div className="pt-8">
+            <p className="text-white/50 text-sm mb-4 font-medium">Connect with me</p>
+            <div className="flex justify-center gap-4 md:gap-6">
               {social_media.map((item, index) => (
                 <SocialMediaButton key={index} item={item} />
               ))}
@@ -93,20 +124,9 @@ const PersonalInfo = () => {
           </div>
         </div>
 
-        {/* Right Section (Profile Image) */}
-        <div className="flex justify-center items-center order-1 md:order-2">
-          <div className="relative p-[10px]">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full blur-[20px] animate-pulse z-0"></div>
-            <div className="relative z-10 transition-all duration-300 ease-in-out hover:scale-105">
-              <Image
-                src={pratik}
-                className="rounded-full h-full w-full max-h-[35vh] md:max-h-[50vh] max-w-[70vh] shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out"
-                alt="Profile Image"
-                priority 
-              />
-            </div>
-          </div>
-        </div>
+        {/* Decorative Elements (optional, can be removed for cleaner look) */}
+        <div className="pointer-events-none absolute top-20 left-20 w-72 h-72 bg-purple-900/10 rounded-full blur-3xl z-0"></div>
+        <div className="pointer-events-none absolute bottom-20 right-20 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl z-0"></div>
       </div>
     </div>
   );

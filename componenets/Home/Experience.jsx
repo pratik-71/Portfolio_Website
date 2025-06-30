@@ -47,50 +47,51 @@ const Experience = () => {
 ];
 
   return (
-    <div className="bg-gradient-to-b from-[#310c43] to-[#0e000d] flex flex-col items-center py-10 gap-6">
-      <h1 className="text-white font-extrabold text-3xl md:text-4xl">- Experience -</h1>
-
-      <div className="flex flex-col px-6 gap-8 justify-center items-center">
+    <div className="flex flex-col items-center py-10 gap-8 px-2">
+      <h1 className="text-4xl font-extrabold mb-6 text-purple-400">- Experience -</h1>
+      <div className="flex flex-col gap-10 w-full max-w-2xl items-center">
         {experience_data.map((data, index) => (
           <div
             key={index}
+            className="relative group bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col w-full p-7 gap-6 transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 cursor-pointer"
             onClick={() => openMarksheetModal(data.certificate)}
-            className="bg-white/10 backdrop-blur-lg rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 flex flex-col w-full sm:w-[700px] h-auto p-4 cursor-pointer gap-6"
           >
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-              <Image
-                src={data.image}
-                height={80}
-                width={100}
-                alt={`Image of ${data.company}`}
-                className="object-cover rounded-md"
-                priority
-              />
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+              <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-900/40 to-blue-900/30 rounded-2xl shadow-md overflow-hidden">
+                <Image
+                  src={data.image}
+                  height={64}
+                  width={64}
+                  alt={`Logo of ${data.company}`}
+                  className="object-contain w-16 h-16"
+                  priority
+                />
+              </div>
               <div className="flex flex-col gap-1 text-white text-left w-full">
-                <h2 className="font-bold text-xl md:text-3xl">{data.company}</h2>
-                <div className="flex flex-wrap items-center justify-between w-full">
-                  <p className="text-white font-bold text-md md:text-xl">{data.position}</p>
-                  <p className="text-white font-semibold text-sm md:text-md">{data.date}</p>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-2">
+                  <h2 className="font-extrabold text-2xl md:text-3xl text-white group-hover:text-purple-300 transition-colors duration-300">{data.company}</h2>
+                  <span className="text-xs md:text-sm font-semibold text-purple-200 bg-purple-900/30 px-3 py-1 rounded-full shadow-sm">{data.date}</span>
                 </div>
-                <ul className="list-disc text-gray-400 pl-5 mt-2">
+                <p className="text-purple-300 font-bold text-md md:text-lg mt-1">{data.position}</p>
+                <ul className="list-disc text-gray-300 pl-5 mt-2 space-y-1">
                   {data.description.map((desc, i) => (
-                    <li key={i} className="text-sm text-white md:text-md">{desc}</li>
+                    <li key={i} className="text-sm md:text-base leading-relaxed">{desc}</li>
                   ))}
                 </ul>
               </div>
             </div>
-
-            <button
-                onClick={() => openMarksheetModal(data.certificate)}
-                className="bg-purple-900 text-white rounded-xl border-2 border-purple-950 shadow-xl py-2 px-4 w-auto self-center md:self-start text-sm"
-                aria-label={`View marksheet for ${data.company}`}
+            <div className="flex justify-center md:justify-start mt-2">
+              <button
+                onClick={e => { e.stopPropagation(); openMarksheetModal(data.certificate); }}
+                className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-6 py-2 font-semibold text-base shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                aria-label={`View certificate for ${data.company}`}
               >
                 View Certificate
-            </button>
+              </button>
+            </div>
           </div>
         ))}
       </div>
-
       <ImageViewer
         isOpen={isModalOpen}
         onClose={closeMarksheetModal}

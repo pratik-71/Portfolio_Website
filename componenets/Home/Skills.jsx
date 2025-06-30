@@ -106,88 +106,35 @@ const Skills = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#440b45] to-[#021f3c] flex flex-col items-center py-5">
-      <h1 className="text-white text-4xl font-extrabold">- Skills -</h1>
-      <div className="flex flex-wrap justify-center gap-5 items-stretch mx-2 mt-10">
-        {/* Frontend */}
-        <div className="bg-gray-900 rounded-xl shadow-xl border-2 border-black flex flex-col items-center px-2 md:px-5 py-5 w-full max-w-[400px] md:min-h-[300px] hover:translate-y-[-10px] hover:shadow-2xl  cursor-pointer duration-150">
-          <p className="text-2xl font-bold text-white pb-4">Frontend</p>
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {frontend.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-[#3c0f52] to-[#07325d] flex items-center justify-center gap-2 px-3 py-2 border-2 border-black rounded-xl hover:scale-110 cursor-pointer duration-150"
-              >
-                <Image src={skill.image} height={30} width={30} alt={skill.name} />
-                <p className="text-white">{skill.name}</p>
-              </div>
-            ))}
+    <div className="flex flex-col items-center py-10 px-2">
+      <h1 className=" text-4xl font-extrabold mb-8 text-purple-400" >- Skills -</h1>
+      <div className="flex flex-wrap justify-center gap-8 items-stretch w-full max-w-7xl">
+        {/* Card generator */}
+        {[
+          { title: 'Frontend', skills: frontend },
+          { title: 'Backend', skills: backend },
+          { title: 'Database', skills: database },
+          { title: 'Languages', skills: languages },
+          { title: 'Tools', skills: tools },
+        ].map((section, idx) => (
+          <div
+            key={section.title}
+            className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-3xl shadow-2xl flex flex-col items-center px-6 py-8 w-full max-w-[350px] min-h-[280px] mb-4 transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 group"
+          >
+            <p className="text-2xl font-bold text-white pb-4 tracking-wide group-hover:text-purple-300 transition-colors duration-300">{section.title}</p>
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              {section.skills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-r from-[#2a0a3c] to-[#0a1a2f] flex items-center justify-center gap-2 px-4 py-2 rounded-full shadow-md border border-white/10 hover:scale-110 hover:shadow-purple-500/30 transition-all duration-200 cursor-pointer"
+                >
+                  <Image src={skill.image} height={28} width={28} alt={skill.name} />
+                  <span className="text-white text-sm font-medium tracking-wide">{skill.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Backend */}
-        <div className="bg-gray-900 rounded-xl  shadow-xl border-2 border-black flex flex-col items-center px-2 md:px-5 py-5 w-full max-w-[400px] md:min-h-[300px] hover:translate-y-[-10px] hover:shadow-2xl  cursor-pointer duration-150">
-          <p className="text-2xl font-bold text-white pb-4">Backend</p>
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {backend.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-[#3c0f52] to-[#07325d] flex items-center justify-center gap-2 px-3 py-2 border-2 border-black rounded-xl hover:scale-110 cursor-pointer duration-150"
-              >
-                <Image src={skill.image} height={30} width={30} alt={skill.name} />
-                <p className="text-white">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Database */}
-        <div className="bg-gray-900 rounded-xl shadow-xl border-2 border-black flex flex-col items-center px-2 md:px-5 py-5 w-full max-w-[400px] md:min-h-[300px] hover:translate-y-[-10px] hover:shadow-2xl  cursor-pointer duration-150">
-          <p className="text-2xl font-bold text-white pb-4">Database</p>
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {database.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-[#3c0f52] to-[#07325d] flex items-center justify-center gap-2 px-3 py-2 border-2 border-black rounded-xl hover:scale-110 cursor-pointer duration-150"
-              >
-                <Image src={skill.image} height={30} width={30} alt={skill.name} />
-                <p className="text-white">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Languages */}
-        <div className="bg-gray-900 rounded-xl shadow-xl border-2 border-black flex flex-col items-center px-2 md:px-5 py-5 w-full max-w-[400px] md:min-h-[300px] hover:translate-y-[-10px] hover:shadow-2xl  cursor-pointer duration-150">
-          <p className="text-2xl font-bold text-white pb-4 ">Languages</p>
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {languages.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-[#3c0f52] to-[#07325d] flex items-center justify-center gap-2 px-3 py-2 border-2 border-black rounded-xl hover:scale-110 cursor-pointer duration-150"
-              >
-                <Image src={skill.image} height={30} width={30} alt={skill.name} />
-                <p className="text-white">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Tools */}
-        <div className="bg-gray-900 rounded-xl shadow-xl border-2 border-black flex flex-col items-center px-2 md:px-5 py-5 w-full max-w-[400px] md:min-h-[300px] hover:translate-y-[-10px] hover:shadow-2xl  cursor-pointer duration-150">
-          <p className="text-2xl font-bold text-white pb-4">Tools</p>
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {tools.map((skill, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-[#3c0f52] to-[#07325d] flex items-center justify-center gap-2 px-3 py-2 border-2 border-black rounded-xl hover:scale-110 cursor-pointer duration-150"
-              >
-                <Image src={skill.image} height={30} width={30} alt={skill.name} />
-                <p className="text-white">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

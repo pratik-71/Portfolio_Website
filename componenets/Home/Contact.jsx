@@ -27,7 +27,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#440b45] to-[#021f3c] flex flex-col items-center py-10">
+    <div className=" flex flex-col items-center py-10">
       <h1 className="text-white text-4xl font-extrabold mb-6">Contact Me</h1>
 
       <div className="flex flex-wrap items-center justify-center gap-6">

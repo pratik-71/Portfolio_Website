@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { IoClose } from "react-icons/io5";
 import { FaAngleDown } from "react-icons/fa";
@@ -7,13 +7,28 @@ import { FaAngleDown } from "react-icons/fa";
 const Navbar = () => {
   const [opennav, setopennav] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 flex px-2 md:px-5 py-1 md:py-3 flex-row justify-between items-center bg-gray-900 z-50 w-full overflow-x-hidden">
+    <div className={`fixed top-0 left-0 right-0 flex px-2 md:px-5 py-1 md:py-3 flex-row justify-between items-center z-50 w-full overflow-x-hidden transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' 
+        : 'bg-transparent'
+    }`}>
       {/* Adjusted for fixed position and full width */}
 
       <div className="flex text-[20px] flex-row justify-center items-center space-x-1 md:space-x-2">
@@ -35,25 +50,25 @@ const Navbar = () => {
         <div className="flex text-[20px] justify-between gap-5 items-center text-white">
           <Link
             href="#about"
-            className="hover:text-purple-700 duration-100 scroll-smooth"
+            className="hover:text-purple-400 duration-300 transition-colors"
           >
             About
           </Link>
           <Link
             href="#skills"
-            className="hover:text-purple-700 duration-100 scroll-smooth"
+            className="hover:text-purple-400 duration-300 transition-colors"
           >
             Skills
           </Link>
           <Link
             href="#project"
-            className="hover:text-purple-700 duration-100 scroll-smooth"
+            className="hover:text-purple-400 duration-300 transition-colors"
           >
             Projects
           </Link>
           <Link
             href="#experience"
-            className="hover:text-purple-700 duration-100 scroll-smooth"
+            className="hover:text-purple-400 duration-300 transition-colors"
           >
             Experience
           </Link>
@@ -63,28 +78,28 @@ const Navbar = () => {
             className="relative"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            <button className="hover:text-purple-700 duration-100 flex justify-center items-center gap-2">
+            <button className="hover:text-purple-400 duration-300 transition-colors flex justify-center items-center gap-2">
               Academics <FaAngleDown />
             </button>
             {isDropdownOpen && (
-              <div className="fixed top-16 right-[1/3] transform mt-2 w-40 bg-gray-800 text-white backdrop-blur-md rounded-md shadow-lg z-50 border-2 border-black">
+              <div className="absolute top-full right-0 mt-2 w-40 bg-gray-800/95 backdrop-blur-md text-white rounded-md shadow-lg z-50 border border-gray-700">
                 <Link
                   href="#education"
-                  className="block px-4 py-2 hover:bg-purple-100/50 duration-100"
+                  className="block px-4 py-2 hover:bg-purple-500/20 duration-300 transition-colors"
                   onClick={() => setIsDropdownOpen(false)}
                 >
                   Education
                 </Link>
                 <Link
                   href="#certificates"
-                  className="block px-4 py-2 hover:bg-purple-100/50 duration-100"
+                  className="block px-4 py-2 hover:bg-purple-500/20 duration-300 transition-colors"
                   onClick={() => setIsDropdownOpen(false)}
                 >
                   Certificates
                 </Link>
                 <Link
                   href="#contact"
-                  className="block px-4 py-2 hover:bg-purple-100/50 duration-100"
+                  className="block px-4 py-2 hover:bg-purple-500/20 duration-300 transition-colors"
                   onClick={() => setIsDropdownOpen(false)}
                 >
                   Contact
@@ -96,8 +111,8 @@ const Navbar = () => {
       </div>
 
       <div>
-        <button className="border-2 md:text-[17px] hover:text-white hover:bg-purple-700 duration-100 text-purple-700 border-purple-700 rounded-lg md:rounded-2xl text-[10px] px-2 py-1 md:px-4 md:py-2">
-          <a href="https://github.com/pratik-71" target="_blank">
+        <button className="border-2 md:text-[17px] hover:text-white hover:bg-purple-600 duration-300 transition-all text-purple-400 border-purple-400 rounded-lg md:rounded-2xl text-[10px] px-2 py-1 md:px-4 md:py-2 hover:scale-105">
+          <a href="https://github.com/pratik-71" target="_blank" rel="noopener noreferrer">
             Github Profile
           </a>
         </button>
@@ -124,10 +139,10 @@ const Navbar = () => {
 
       {opennav && (
         <>
-          <div className="fixed inset-0 bg-white bg-opacity-50 backdrop-blur-sm z-40"></div>
-          <div className="fixed top-0 right-0 h-screen w-3/4 sm:w-1/2 px-5 py-5 backdrop-blur-sm text-black bg-white z-50 duration-200 flex flex-col gap-[30px]">
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"></div>
+          <div className="fixed top-0 right-0 h-screen w-3/4 sm:w-1/2 px-5 py-5 backdrop-blur-md bg-gray-900/95 text-white z-50 duration-300 flex flex-col gap-[30px]">
             <button onClick={() => setopennav(!opennav)}>
-              <IoClose className="text-[25px] float-right hover:text-red-500" />
+              <IoClose className="text-[25px] float-right hover:text-red-400 transition-colors duration-300" />
             </button>
             <div
               className="flex flex-col justify-center items-center gap-[20px]"
@@ -135,43 +150,43 @@ const Navbar = () => {
             >
               <Link
                 href="#about"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 About
               </Link>
               <Link
                 href="#skills"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 Skills
               </Link>
               <Link
                 href="#experience"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 Experience
               </Link>
               <Link
                 href="#project"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 Project
               </Link>
               <Link
                 href="#education"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 Education
               </Link>
               <Link
                 href="#certificates"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 Certificates
               </Link>
               <Link
                 href="#contact"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-blue-500 duration-100 hover:scale-110"
+                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
               >
                 Contact
               </Link>
