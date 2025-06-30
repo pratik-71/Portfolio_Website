@@ -11,26 +11,28 @@ import Experience from "@/componenets/Home/Experience";
 
 export default function Home() {
   return (
-    <div className="scroll-smooth relative min-h-screen overflow-x-hidden" style={{
+    <div className="scroll-smooth sticky top-0 min-h-screen max-h-screen overflow-x-hidden filter saturate-150" style={{
       background: `linear-gradient(120deg, #050510 0%, #14141c 100%)` }}>
       {/* Radial spotlight overlay for the whole app */}
       <div className="pointer-events-none fixed inset-0 z-0" style={{
         background: `radial-gradient(ellipse 60% 40% at 50% 30%, rgba(40, 0, 60, 0.13) 0%, rgba(5,5,16,0.97) 80%)`,
         minHeight: '100vh',
+        maxHeight: '100vh',
         width: '100vw',
       }} />
-      <div className="relative z-10">
+      <div className="relative z-10 bg-gray-950">
         <Navbar/>
 
         <section id="about">
             <Personal_info/>
         </section>
-        <section id="skills">
-          <Skills/>
-        </section>
         <section id="experience">
           <Experience/>
         </section>
+        <section id="skills">
+          <Skills/>
+        </section>
+   
         <section id="project">
           <Project/>
         </section>

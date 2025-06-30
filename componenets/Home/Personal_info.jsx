@@ -15,11 +15,6 @@ const social_media = [
     link: "https://github.com/pratik-71"
   },
   {
-    image: "/icons/hackerank.png",
-    text: "Instagram",
-    link: "https://www.instagram.com/pratik___dabhade/"
-  },
-  {
     image: "/icons/linkedin.png",
     text: "Linkedin",
     link: "https://www.linkedin.com/in/pratik-dabhade-a9a600175/"

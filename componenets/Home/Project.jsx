@@ -1,11 +1,13 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef, useEffect } from "react";
 import ImageViewer from "../common/ImageViewer";
 import Image from "next/image";
 
 const Project = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [visible, setVisible] = useState([]);
+  const cardRefs = useRef([]);
 
   const openImageModal = useCallback((image) => {
     setSelectedImage(image);
@@ -33,16 +35,55 @@ const Project = () => {
         "A comprehensive shoe e-commerce platform with a modern frontend and robust backend. Customers can easily browse a wide selection of footwear, filter by size and style, and enjoy a seamless checkout experience. The backend manages inventory and user accounts, while responsive design ensures accessibility across all devices.",
       githubLink: "https://github.com/pratik-71/Shoes_Online_Shop",
     },
+    {
+      image: "/projects/2D RPG GAME.png",
+      name: "2D Multiplayer RPG Game",
+      technology: "TailWind CSS, React Js, Phaser 3, Node Js, Socket.io",
+      description:
+        "A 2D Multiplayer RPG Game built with Phaser 3, Node.js, and Socket.io. Players can join a game room, move around, and interact with other players in real-time. The game features a simple combat system and a team play mode. gives real ime fun experience also message system is also implemented",
+      githubLink: "https://github.com/pratik-71/2D_RPG.git",
+    },
   ];
+
+  // Staggered fade-in animation using Intersection Observer
+  useEffect(() => {
+    if (!cardRefs.current) return;
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.getAttribute('data-idx'));
+            setVisible((prev) => {
+              if (prev.includes(idx)) return prev;
+              return [...prev, idx];
+            });
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="flex flex-col items-center py-10 px-2 md:px-8">
       <h1 className="text-4xl font-extrabold mb-8 text-purple-400">- Projects -</h1>
-      <div className="flex flex-col md:flex-row flex-wrap gap-10 w-full max-w-6xl justify-center items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
         {projects.map((pro, index) => (
           <div
             key={index}
-            className="relative group bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col w-full max-w-[420px] min-h-[540px] overflow-hidden transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 cursor-pointer"
+            ref={el => cardRefs.current[index] = el}
+            data-idx={index}
+            className={`relative group bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col w-full max-w-[420px] min-h-[540px] overflow-hidden transition-all duration-700 ease-out
+              hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 cursor-pointer
+              ${visible.includes(index)
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10 pointer-events-none'}
+            `}
+            style={{ transitionDelay: visible.includes(index) ? `${index * 120}ms` : '0ms' }}
           >
             <div className="w-full h-56 overflow-hidden">
               <Image
