@@ -16,11 +16,24 @@ const Experience = () => {
     setIsModalOpen(true);
   };
 
-  const experience_data = [{
+  const experience_data = [
+    {
+      company: "Persist Ventures",
+      position: "Full Stack Developer and CTO",
+      image: "/experience/Persist.jpeg",
+      date: "12 Dec 2024 - 28 jan 2026",
+      description: [
+        "Led daily stand-up meetings to discuss progress, address blockers, and align on next steps with the development team.",
+        "Developed full-stack features, handling both frontend UI and backend logic, and ensured smooth API integration.",
+        "Translated responsive Figma designs into production-ready code, maintaining pixel-perfect layouts across devices.",
+        "Collaborated with stakeholders, investors, and partner organizations to present product pitches and align business goals with technical execution."
+      ],
+      certificate: "/certificates/persist Offer letter.png"
+    },{
     company: "Qviq",
     position: "Full Stack Developer Intern",
     image: "/experience/qviq.png",
-    date: "28 April - 20 June",
+    date: "28 April 2024 - 20 June 2024",
     description: [
       "Participated in daily standup meetings with project teams in order to discuss progress updates.",
       "Utilized source control systems such as Git to manage codebase changes.",
@@ -29,20 +42,7 @@ const Experience = () => {
       "Made API calls to backend and third-party services for seamless data integration."
     ],
     certificate: "/certificates/tapop.png"
-  },
-  {
-    company: "Persist Ventures",
-    position: "Full Stack Developer and CTO",
-    image: "/experience/Persist.jpeg",
-    date: "12 Dec 2024 - Present",
-    description: [
-      "Led daily stand-up meetings to discuss progress, address blockers, and align on next steps with the development team.",
-      "Developed full-stack features, handling both frontend UI and backend logic, and ensured smooth API integration.",
-      "Translated responsive Figma designs into production-ready code, maintaining pixel-perfect layouts across devices.",
-      "Collaborated with stakeholders, investors, and partner organizations to present product pitches and align business goals with technical execution."
-    ],
-    certificate: "/certificates/persist Offer letter.png"
-  },
+  }
 ];
 
   return (

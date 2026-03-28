@@ -31,6 +31,10 @@ const Skills = () => {
       image: "/icons/next js.png",
       name: "Next Js",
     },
+    {
+      image: "/icons/angular.png",
+      name: "Angular Js",
+    },
   ];
   const backend = [
     {

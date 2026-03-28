@@ -54,7 +54,7 @@ const Education = () => {
 
   return (
     <div className="flex flex-col items-center py-10 px-2">
-      <h1 className="text-4xl font-extrabold mb-12 text-purple-400">Education</h1>
+      <h1 className="text-4xl font-extrabold mb-12 text-purple-400">- Education -</h1>
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {education.map((edu, idx) => (
           <div

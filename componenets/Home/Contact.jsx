@@ -28,7 +28,7 @@ const Contact = () => {
 
   return (
     <div className=" flex flex-col items-center py-10">
-      <h1 className="text-white text-4xl font-extrabold mb-6">Contact Me</h1>
+      <h1 className=" text-4xl font-extrabold mb-6 text-purple-400">- Contact Me -</h1>
 
       <div className="flex flex-wrap items-center justify-center gap-6">
         {contacts.map((con, index) => (

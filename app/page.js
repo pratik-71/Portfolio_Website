@@ -11,38 +11,35 @@ import Experience from "@/componenets/Home/Experience";
 
 export default function Home() {
   return (
-    <div className="scroll-smooth sticky top-0 min-h-screen max-h-screen overflow-x-hidden filter saturate-150" style={{
+    <div className="scroll-smooth min-h-screen w-full relative" style={{
       background: `linear-gradient(120deg, #050510 0%, #14141c 100%)` }}>
       {/* Radial spotlight overlay for the whole app */}
-      <div className="pointer-events-none fixed inset-0 z-0" style={{
+      <div className="pointer-events-none fixed inset-0 z-0 w-full h-full" style={{
         background: `radial-gradient(ellipse 60% 40% at 50% 30%, rgba(40, 0, 60, 0.13) 0%, rgba(5,5,16,0.97) 80%)`,
-        minHeight: '100vh',
-        maxHeight: '100vh',
-        width: '100vw',
       }} />
-      <div className="relative z-10 bg-gray-950">
+      <div className="relative z-10 bg-gray-950/20 w-full min-h-screen backdrop-filter backdrop-saturate-150">
         <Navbar/>
 
-        <section id="about">
+        <section id="about" className=" mb-8">
             <Personal_info/>
         </section>
-        <section id="experience">
+        <section id="experience" className=" mb-8">
           <Experience/>
         </section>
-        <section id="skills">
+        <section id="skills" className=" mb-8">
           <Skills/>
         </section>
    
-        <section id="project">
+        <section id="project" className=" mb-8">
           <Project/>
         </section>
-        <section id="education">
+        <section id="education" className=" mb-8">
           <Education/>
         </section>
-        <section id="certificates">
+        <section id="certificates" className=" mb-8">
           <Certificates/>
         </section>
-        <section id="contact">
+        <section id="contact" className=" mb-8">
           <Contact/>
         </section>
       </div>
