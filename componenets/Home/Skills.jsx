@@ -20,10 +20,6 @@ const Skills = () => {
       name: "Tailwind Css",
     },
     {
-      image: "/icons/boostrap.png",
-      name: "Bootstrap",
-    },
-    {
       image: "/icons/react.png",
       name: "React Js",
     },
@@ -32,8 +28,16 @@ const Skills = () => {
       name: "Next Js",
     },
     {
-      image: "/icons/angular.png",
-      name: "Angular Js",
+      image: "/icons/typescript.png",
+      name: "TypeScript",
+    },
+    {
+      image: "/icons/SEO.png",
+      name: "SEO",
+    },
+    {
+      image: "/icons/react.png",
+      name: "React Native",
     },
   ];
   const backend = [
@@ -46,8 +50,8 @@ const Skills = () => {
       name: "Express Js",
     },
     {
-      image: "/icons/golang.png",
-      name: "Golang",
+      image: "/icons/socket.svg",
+      name: "Socket.io",
     },
     {
       image: "/icons/api.png",
@@ -55,8 +59,16 @@ const Skills = () => {
     },
     {
       image: "/icons/api.png",
-      name:"Third Party API",
-    }
+      name: "Third Party API",
+    },
+    {
+      image: "/icons/redis.png",
+      name: "Redis",
+    },
+    {
+      image: "/icons/microservice.png",
+      name: "Microservice Architecture",
+    },
   ];
   const database = [
     {
@@ -75,6 +87,10 @@ const Skills = () => {
       image: "/icons/firebase.png",
       name: "Firebase",
     },
+    {
+      image: "/icons/supabase.png",
+      name: "Supabase",
+    },
   ];
   const languages = [
     {
@@ -85,11 +101,23 @@ const Skills = () => {
       image: "/icons/python.png",
       name: "Python",
     },
+    {
+      image: "/icons/api.png",
+      name: "C",
+    },
+    {
+      image: "/icons/react.png",
+      name: "React Native",
+    },
   ];
   const tools = [
     {
       image: "/icons/figma.png",
       name: "Figma",
+    },
+    {
+      image: "/icons/docker.png",
+      name: "Docker",
     },
     {
       image: "/icons/git.png",
@@ -100,12 +128,58 @@ const Skills = () => {
       name: "Github",
     },
     {
-      image: "/icons/docker.png",
-      name: "Docker",
-    },
-    {
       image: "/icons/postman.png",
       name: "Postman",
+    },
+    {
+      image: "/icons/data-pipeline.png",
+      name: "CI-CD pipelines",
+    },
+    {
+      image: "/icons/wordpress.png",
+      name: "WordPress",
+    },
+    {
+      image: "/icons/agentic-ai.png",
+      name: "Agentic AI",
+    },
+    {
+      image: "/icons/AI.png",
+      name: "AI",
+    },
+    {
+      image: "/icons/LLM.png",
+      name: "LLM Integration",
+    },
+    {
+      image: "/icons/agentic workflow.png",
+      name: "Agentic Workflows",
+    },
+    {
+      image: "/icons/aws.png",
+      name: "AWS",
+    },
+    {
+      image: "/icons/spark-logo.svg",
+      name: "Spark",
+    },
+  ];
+
+  const softSkills = [
+    {
+      name: "Good Communication Skill",
+    },
+    {
+      name: "Problem Solver",
+    },
+    {
+      name: "Collaborative",
+    },
+    {
+      name: "Adaptability",
+    },
+    {
+      name: "Quick Learner",
     },
   ];
 
@@ -117,9 +191,10 @@ const Skills = () => {
         {[
           { title: 'Frontend', skills: frontend },
           { title: 'Backend', skills: backend },
+          { title: 'Tools', skills: tools },
           { title: 'Database', skills: database },
           { title: 'Languages', skills: languages },
-          { title: 'Tools', skills: tools },
+          { title: 'Soft Skills', skills: softSkills },
         ].map((section, idx) => (
           <div
             key={section.title}
@@ -132,7 +207,7 @@ const Skills = () => {
                   key={index}
                   className="bg-gradient-to-r from-[#2a0a3c] to-[#0a1a2f] flex items-center justify-center gap-2 px-4 py-2 rounded-full shadow-md border border-white/10 hover:scale-110 hover:shadow-purple-500/30 transition-all duration-200 cursor-pointer"
                 >
-                  <Image src={skill.image} height={28} width={28} alt={skill.name} />
+                  {skill.image && <Image src={skill.image} height={28} width={28} alt={skill.name} />}
                   <span className="text-white text-sm font-medium tracking-wide">{skill.name}</span>
                 </div>
               ))}

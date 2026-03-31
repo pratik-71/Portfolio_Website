@@ -20,12 +20,12 @@ const Project = () => {
 
   const projects = [
     {
-      image: "/projects/food_delievery.png",
-      name: "Food Delivery App",
-      technology: "React Js, TailWind CSS",
+      image: "/projects/memories.png",
+      name: "Memories: Timeline Tracker",
+      technology: "React Native, Expo, MongoDB",
       description:
-        "A sleek and user-friendly food delivery app frontend designed for seamless navigation. Users can browse a diverse menu, place orders, track delivery in real-time, and enjoy a hassle-free checkout process. Features include interactive UI elements, vibrant food images, and responsive design for a delightful user experience.",
-      githubLink: "https://github.com/pratik-71/React-Food-Delivery-App",
+        "A premium iOS application for tracking life's timelines and milestones. Users can effortlessly create visual journals of their memories, track durations of important events, and maintain a aesthetic digital history. Features include live-updating duration counters and a sophisticated, glassmorphism-inspired UI.",
+      link: "https://apps.apple.com/us/app/memories-timeline-tracker/id6758773374",
     },
     {
       image: "/projects/shoe_shop.png",
@@ -33,7 +33,7 @@ const Project = () => {
       technology: "TailWind CSS, React Js, Express Js, Mongo-DB",
       description:
         "A comprehensive shoe e-commerce platform with a modern frontend and robust backend. Customers can easily browse a wide selection of footwear, filter by size and style, and enjoy a seamless checkout experience. The backend manages inventory and user accounts, while responsive design ensures accessibility across all devices.",
-      githubLink: "https://github.com/pratik-71/Shoes_Online_Shop",
+      link: "https://github.com/pratik-71/Shoes_Online_Shop",
     },
     {
       image: "/projects/2D RPG GAME.png",
@@ -41,7 +41,7 @@ const Project = () => {
       technology: "TailWind CSS, React Js, Phaser 3, Node Js, Socket.io",
       description:
         "A 2D Multiplayer RPG Game built with Phaser 3, Node.js, and Socket.io. Players can join a game room, move around, and interact with other players in real-time. The game features a simple combat system and a team play mode. gives real ime fun experience also message system is also implemented",
-      githubLink: "https://github.com/pratik-71/2D_RPG.git",
+      link: "https://github.com/pratik-71/2D_RPG.git",
     },
   ];
 
@@ -115,12 +115,12 @@ const Project = () => {
               </p>
               <div className="flex justify-center mt-auto">
                 <a
-                  href={pro.githubLink}
+                  href={pro.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-6 py-2 font-semibold text-base shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
                 >
-                  GitHub
+                  {pro.link?.includes('github.com') ? 'GitHub' : 'View App'}
                 </a>
               </div>
             </div>
