@@ -21,7 +21,7 @@ const Experience = () => {
       company: "Persist Ventures",
       position: "Full Stack Developer and CTO",
       image: "/experience/Persist.jpeg",
-      date: "12 Dec 2024 - 28 jan 2026",
+      date: "DEC 2024 - JAN 2026",
       description: [
         "Led daily stand-up meetings to discuss progress, address blockers, and align on next steps with the development team.",
         "Developed full-stack features, handling both frontend UI and backend logic, and ensured smooth API integration.",
@@ -33,7 +33,7 @@ const Experience = () => {
     company: "Qviq",
     position: "Full Stack Developer Intern",
     image: "/experience/qviq.png",
-    date: "28 April 2024 - 20 June 2024",
+    date: "APRIL 2024 - JUNE 2024",
     description: [
       "Participated in daily standup meetings with project teams in order to discuss progress updates.",
       "Utilized source control systems such as Git to manage codebase changes.",
@@ -46,78 +46,74 @@ const Experience = () => {
 ];
 
   return (
-    <div className="flex flex-col items-center py-16 gap-8 px-2 min-h-screen">
-      <h1 className="text-4xl font-extrabold mb-8 text-purple-400 text-center">- Experience Roadmap -</h1>
+    <div className="flex flex-col items-center py-24 gap-12 px-4 min-h-screen relative overflow-hidden">
+      {/* Background Section Glow */}
+      <div className="absolute top-1/4 -right-48 w-96 h-96 bg-primary-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="text-center space-y-4">
+        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Career Journey</h2>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950">REMARKABLE <span className="text-primary-500">EXPERIENCE</span></h1>
+      </div>
       
-      <div className="relative w-full max-w-6xl px-1 sm:px-4 md:px-8">
+      <div className="relative w-full max-w-6xl mt-12">
         {/* Main vertical timeline line */}
-        <div className="absolute left-1/2 md:left-1/2 sm:left-8 transform -translate-x-1/2 md:-translate-x-1/2 sm:translate-x-0 w-1 bg-gradient-to-b from-purple-500 via-pink-500 to-blue-500 h-full rounded-full shadow-lg z-0 sm:left-4 sm:-translate-x-0"></div>
+        <div className="absolute left-12 md:left-1/2 transform -translate-x-1/2 w-1.5 bg-slate-200 h-full rounded-full overflow-hidden">
+           <div className="w-full h-1/2 bg-primary-500 shadow-emerald-glow" />
+        </div>
         
         {/* Timeline items */}
-        <div className="relative space-y-16">
+        <div className="relative space-y-24">
           {experience_data.map((data, index) => (
-            <div key={index} className="relative flex flex-col md:block">
-              {/* Horizontal branch line */}
-              <div className={`hidden md:block absolute top-1/2 transform -translate-y-1/2 w-1/4 h-0.5 
-                ${index % 2 === 0 
-                  ? 'right-1/2 bg-gradient-to-l from-purple-500/50 to-transparent' 
-                  : 'left-1/2 bg-gradient-to-r from-purple-500/50 to-transparent'}`}></div>
-              
-              {/* Experience card */}
-              <div className={`w-full flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} justify-center`}>
-                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'ml-0' : 'mr-0'} max-w-lg`}> 
+            <div key={index} className="relative">
+              {/* Timeline dot */}
+              <div className="absolute left-12 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-white border-4 border-primary-500 rounded-full z-10 shadow-emerald-glow" />
+
+              <div className={`w-full flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} justify-center pl-24 md:pl-0`}>
+                <div className={`w-full md:w-[45%] group interactive-element`}> 
                   <div
-                    className="relative group bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl p-6 transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 cursor-pointer"
+                    className="glass-card rounded-[3rem] p-8 hover:border-primary-500/30 transition-all duration-500 cursor-pointer"
                     onClick={() => openMarksheetModal(data.certificate)}
                   >
-                    {/* Date badge */}
-                    <div className="absolute -top-3 left-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-xs md:text-sm font-semibold shadow-lg">
-                      {data.date}
-                    </div>
-                    
-                    <div className="flex flex-col gap-4 mt-4">
-                      {/* Company logo and name */}
-                      <div className="flex items-center gap-4">
-                        <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-900/40 to-blue-900/30 rounded-xl shadow-md overflow-hidden">
+                    {/* Header */}
+                    <div className="flex flex-col sm:flex-row items-center gap-6 mb-8 text-center sm:text-left">
+                       <div className="w-20 h-20 bg-slate-50 rounded-[1.5rem] flex items-center justify-center p-3 shadow-inner border border-slate-100">
                           <Image
                             src={data.image}
-                            height={48}
-                            width={48}
-                            alt={`Logo of ${data.company}`}
-                            className="object-contain w-10 h-10 md:w-12 md:h-12"
-                            priority
+                            height={60}
+                            width={60}
+                            alt={data.company}
+                            className="object-contain"
                           />
-                        </div>
-                        <div className="flex flex-col">
-                          <h2 className="font-extrabold text-lg md:text-2xl text-white group-hover:text-purple-300 transition-colors duration-300">
+                       </div>
+                       <div className="flex-1">
+                          <span className="text-primary-500 text-sm font-bold tracking-widest">{data.date}</span>
+                          <h2 className="text-3xl font-bold tracking-tighter text-slate-950  transition-colors duration-300 uppercase leading-none mt-1">
                             {data.company}
                           </h2>
-                          <p className="text-purple-300 font-bold text-sm md:text-lg">
+                          <p className="text-slate-500 font-bold text-lg mt-1">
                             {data.position}
                           </p>
-                        </div>
-                      </div>
-                      
-                      {/* Description */}
-                      <ul className="list-disc text-gray-300 pl-5 space-y-2">
-                        {data.description.map((desc, i) => (
-                          <li key={i} className="text-xs md:text-sm leading-relaxed">
-                            {desc}
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      {/* View Certificate button */}
-                      <div className="flex justify-center mt-4">
-                        <button
-                          onClick={e => { e.stopPropagation(); openMarksheetModal(data.certificate); }}
-                          className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-4 md:px-6 py-2 font-semibold text-xs md:text-sm shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                          aria-label={`View certificate for ${data.company}`}
-                        >
-                          View Certificate
-                        </button>
-                      </div>
+                       </div>
                     </div>
+                    
+                    {/* Description */}
+                    <ul className="space-y-4 mb-8">
+                      {data.description.map((desc, i) => (
+                        <li key={i} className="flex gap-3 text-slate-600">
+                          <span className="text-primary-500 mt-1.5 flex-shrink-0">
+                            <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+                          </span>
+                          <p className="text-sm font-medium leading-relaxed">{desc}</p>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <button
+                      onClick={e => { e.stopPropagation(); openMarksheetModal(data.certificate); }}
+                      className="w-full py-4 bg-primary-500/10 hover:bg-primary-500 text-primary-500 hover:text-white rounded-2xl font-bold tracking-widest transition-all duration-300 border border-primary-500/20 uppercase text-xs"
+                    >
+                      View Credential
+                    </button>
                   </div>
                 </div>
               </div>

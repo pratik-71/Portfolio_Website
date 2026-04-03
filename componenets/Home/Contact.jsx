@@ -5,37 +5,44 @@ import React from 'react';
 const Contact = () => {
   const contacts = [
     {
-      name: "WhatsApp",
+      name: "WHATSAPP",
       image: "/icons/whatsapp.png",
       link: "https://wa.me/9146032029", 
     },
     {
-      name: "Gmail",
+      name: "GMAIL",
       image: "/icons/gmail.png",
       link: "mailto:prtikdabhade66344@gmail.com",
     },
     {
-      name: "Instagram",
+      name: "INSTAGRAM",
       image: "/icons/hackerank.png", 
       link: "https://www.instagram.com/pratik___dabhade/", 
     },
     {
-      name: "LinkedIn",
+      name: "LINKEDIN",
       image: "/icons/linkedin.png",
       link: "https://www.linkedin.com/in/pratik-dabhade-a9a600175/", 
     },
   ];
 
   return (
-    <div className=" flex flex-col items-center py-10">
-      <h1 className=" text-4xl font-extrabold mb-6 text-purple-400">- Contact Me -</h1>
+    <div className="flex flex-col items-center py-24 px-4 relative">
+      <div className="ambient-glow bottom-0 left-1/2 -translate-x-1/2 opacity-10" />
 
-      <div className="flex flex-wrap items-center justify-center gap-6">
+      <div className="text-center space-y-4 mb-16">
+        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Get In Touch</h2>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase sm:leading-none">Direct <span className="text-primary-500">Channels</span></h1>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-center gap-8 max-w-5xl mx-auto w-full">
         {contacts.map((con, index) => (
-          <Link href={con.link} target="_blank" rel="noopener noreferrer" key={index}>
-            <div className="min-w-[140px] max-w-[200px] min-h-[140px] max-h-[200px] bg-white/10 backdrop-blur-lg border border-gray-700 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
-              <Image src={con.image} height={50} width={50} alt={con.name} className="mb-2" />
-              <p className="text-white text-lg font-semibold">{con.name}</p>
+          <Link href={con.link} target="_blank" rel="noopener noreferrer" key={index} className="flex-1 min-w-[200px]">
+            <div className="glass-card rounded-[3rem] p-10 flex flex-col items-center justify-center text-center transition-all duration-500 interactive-element group">
+              <div className="w-16 h-16 relative mb-6 transition-all duration-500">
+                <Image src={con.image} fill className="object-contain" alt={con.name} />
+              </div>
+              <p className="text-slate-950 font-bold tracking-widest uppercase text-sm group-hover:text-primary-500 transition-colors">{con.name}</p>
             </div>
           </Link>
         ))}

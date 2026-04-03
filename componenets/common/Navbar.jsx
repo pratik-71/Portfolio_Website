@@ -19,114 +19,109 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
   return (
-    <div className={`fixed top-0 left-0 right-0 flex px-2 md:px-5 py-1 md:py-3 flex-row justify-between items-center z-50 w-full overflow-x-hidden transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 flex px-6 md:px-12 py-4 flex-row justify-between items-center z-50 w-full transition-all duration-500 ${
       isScrolled 
-        ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' 
+        ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200 py-3' 
         : 'bg-transparent'
     }`}>
-      {/* Adjusted for fixed position and full width */}
-
-      <div className="flex text-[20px] flex-row justify-center items-center space-x-1 md:space-x-2">
-        <svg
-          stroke="currentColor"
-          fill="white"
-          strokeWidth="0"
-          version="1.1"
-          viewBox="0 0 32 32"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 md:h-14 md:w-14 lg:h-18 lg:w-18"
-        >
-          <path d="M13.632 5.289c-0.613 0.129-1.823 0.565-2.662 0.984-1.275 0.613-1.759 0.968-2.921 2.13s-1.517 1.646-2.13 2.921c-1.646 3.373-1.646 6.6 0 10.005 0.613 1.291 0.952 1.759 2.13 2.921 1.178 1.178 1.63 1.501 2.921 2.13 1.969 0.936 2.921 1.162 5.002 1.162s3.034-0.226 5.002-1.162c1.275-0.613 1.727-0.952 2.921-2.13 1.178-1.194 1.517-1.646 2.13-2.921 0.774-1.63 1-2.388 1.178-4.002l0.113-1h-3.195l-0.21 1.243c-1.017 6.471-8.907 9.069-13.587 4.47-3.792-3.712-2.969-10.005 1.678-12.732 0.871-0.516 2.63-1.049 3.437-1.049h0.532v-3.227l-0.597 0.016c-0.339 0-1.113 0.113-1.743 0.242zM14.213 9.645c-3.421 0.92-5.648 4.325-5.067 7.745 0.662 3.792 4.212 6.39 7.891 5.761 3.776-0.645 6.39-4.212 5.761-7.859-0.71-4.115-4.647-6.713-8.585-5.648z"></path>
-        </svg>
-        <p className="text-white text-sm md:text-[20px]">Portfolio</p>
+      <div className="flex items-center space-x-3 group cursor-pointer">
+        <div className="h-10 w-10 bg-primary-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+           <svg
+            stroke="currentColor"
+            fill="white"
+            strokeWidth="0"
+            version="1.1"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+          >
+            <path d="M13.632 5.289c-0.613 0.129-1.823 0.565-2.662 0.984-1.275 0.613-1.759 0.968-2.921 2.13s-1.517 1.646-2.13 2.921c-1.646 3.373-1.646 6.6 0 10.005 0.613 1.291 0.952 1.759 2.13 2.921 1.178 1.178 1.63 1.501 2.921 2.13 1.969 0.936 2.921 1.162 5.002 1.162s3.034-0.226 5.002-1.162c1.275-0.613 1.727-0.952 2.921-2.13 1.178-1.194 1.517-1.646 2.13-2.921 0.774-1.63 1-2.388 1.178-4.002l0.113-1h-3.195l-0.21 1.243c-1.017 6.471-8.907 9.069-13.587 4.47-3.792-3.712-2.969-10.005 1.678-12.732 0.871-0.516 2.63-1.049 3.437-1.049h0.532v-3.227l-0.597 0.016c-0.339 0-1.113 0.113-1.743 0.242zM14.213 9.645c-3.421 0.92-5.648 4.325-5.067 7.745 0.662 3.792 4.212 6.39 7.891 5.761 3.776-0.645 6.39-4.212 5.761-7.859-0.71-4.115-4.647-6.713-8.585-5.648z"></path>
+          </svg>
+        </div>
+        <p className="text-slate-950 text-xl font-black italic tracking-tighter hidden sm:block uppercase">PORTFOLIO</p>
       </div>
 
       <div className="hidden md:block">
-        <div className="flex text-[20px] justify-between gap-5 items-center text-white">
+        <div className="flex items-center space-x-8 text-slate-600 font-medium tracking-wide">
           <Link
             href="#about"
-            className="hover:text-purple-400 duration-300 transition-colors"
+            className="hover:text-primary-500 duration-300 transition-colors relative group"
           >
             About
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="#skills"
-            className="hover:text-purple-400 duration-300 transition-colors"
+            className="hover:text-primary-500 duration-300 transition-colors relative group"
           >
             Skills
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="#project"
-            className="hover:text-purple-400 duration-300 transition-colors"
+            className="hover:text-primary-500 duration-300 transition-colors relative group"
           >
             Projects
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
             href="#experience"
-            className="hover:text-purple-400 duration-300 transition-colors"
+            className="hover:text-primary-500 duration-300 transition-colors relative group"
           >
             Experience
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          {/* Dropdown for Academics */}
 
           <div
-            className="relative"
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="relative group py-2"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <button className="hover:text-purple-400 duration-300 transition-colors flex justify-center items-center gap-2">
-              Academics <FaAngleDown />
+            <button className="hover:text-primary-500 duration-300 transition-colors flex items-center gap-1">
+              Academics <FaAngleDown className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            {isDropdownOpen && (
-              <div className="absolute top-full right-0 mt-2 w-40 bg-gray-800/95 backdrop-blur-md text-white rounded-md shadow-lg z-50 border border-gray-700">
-                <Link
-                  href="#education"
-                  className="block px-4 py-2 hover:bg-purple-500/20 duration-300 transition-colors"
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Education
-                </Link>
-                <Link
-                  href="#certificates"
-                  className="block px-4 py-2 hover:bg-purple-500/20 duration-300 transition-colors"
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Certificates
-                </Link>
-                <Link
-                  href="#contact"
-                  className="block px-4 py-2 hover:bg-purple-500/20 duration-300 transition-colors"
-                  onClick={() => setIsDropdownOpen(false)}
-                >
-                  Contact
-                </Link>
-              </div>
-            )}
+            <div className={`absolute top-full right-0 mt-1 w-48 glass-card rounded-3xl overflow-hidden z-50 transition-all duration-300 origin-top-right ${isDropdownOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}>
+              <Link
+                href="#education"
+                className="block px-6 py-3 hover:bg-slate-100 text-slate-600 hover:text-primary-500 transition-all duration-300 uppercase font-black italic text-xs tracking-widest"
+              >
+                Education
+              </Link>
+              <Link
+                href="#certificates"
+                className="block px-6 py-3 hover:bg-slate-100 text-slate-600 hover:text-primary-500 transition-all duration-300 uppercase font-black italic text-xs tracking-widest"
+              >
+                Certificates
+              </Link>
+              <Link
+                href="#contact"
+                className="block px-6 py-3 hover:bg-slate-100 text-slate-600 hover:text-primary-500 transition-all duration-300 uppercase font-black italic text-xs tracking-widest"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      <div>
-        <button className="border-2 md:text-[17px] hover:text-white hover:bg-purple-600 duration-300 transition-all text-purple-400 border-purple-400 rounded-lg md:rounded-2xl text-[10px] px-2 py-1 md:px-4 md:py-2 hover:scale-105">
-          <a href="https://github.com/pratik-71" target="_blank" rel="noopener noreferrer">
-            Github Profile
-          </a>
-        </button>
-      </div>
-
-      <div className="block md:hidden">
-        <button onClick={() => setopennav(!opennav)}>
+      <div className="flex items-center gap-4">
+        <Link href="https://github.com/pratik-71" target="_blank" rel="noopener noreferrer">
+          <button className="hidden sm:block px-6 py-2.5 bg-primary-500 text-white font-bold rounded-[2.5rem] hover:scale-105 active:scale-95 transition-all duration-300">
+            GITHUB
+          </button>
+        </Link>
+        <button 
+          className="md:hidden text-slate-950"
+          onClick={() => setopennav(true)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-9 text-white"
+            className="w-8 h-8"
           >
             <path
               strokeLinecap="round"
@@ -137,64 +132,27 @@ const Navbar = () => {
         </button>
       </div>
 
-      {opennav && (
-        <>
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"></div>
-          <div className="fixed top-0 right-0 h-screen w-3/4 sm:w-1/2 px-5 py-5 backdrop-blur-md bg-gray-900/95 text-white z-50 duration-300 flex flex-col gap-[30px]">
-            <button onClick={() => setopennav(!opennav)}>
-              <IoClose className="text-[25px] float-right hover:text-red-400 transition-colors duration-300" />
-            </button>
-            <div
-              className="flex flex-col justify-center items-center gap-[20px]"
-              onClick={() => setopennav(!opennav)}
-            >
-              <Link
-                href="#about"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                About
-              </Link>
-              <Link
-                href="#skills"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                Skills
-              </Link>
-              <Link
-                href="#experience"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                Experience
-              </Link>
-              <Link
-                href="#project"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                Project
-              </Link>
-              <Link
-                href="#education"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                Education
-              </Link>
-              <Link
-                href="#certificates"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                Certificates
-              </Link>
-              <Link
-                href="#contact"
-                className="text-[15px] scroll-smooth font-[500] cursor-pointer hover:text-purple-400 duration-300 transition-colors hover:scale-110"
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+      {/* Mobile Nav */}
+      <div className={`fixed inset-0 bg-white/95 backdrop-blur-2xl z-[100] transition-all duration-500 flex flex-col items-center justify-center gap-8 ${opennav ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <button 
+          className="absolute top-8 right-8 text-slate-950 hover:text-primary-500 transition-colors"
+          onClick={() => setopennav(false)}
+        >
+          <IoClose className="text-4xl" />
+        </button>
+        
+        {['About', 'Skills', 'Experience', 'Project', 'Education', 'Certificates', 'Contact'].map((item) => (
+          <Link
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="text-3xl font-black tracking-tighter text-slate-950 hover:text-primary-500 transition-all duration-300"
+            onClick={() => setopennav(false)}
+          >
+            {item.toUpperCase()}
+          </Link>
+        ))}
+      </div>
+    </nav>
   );
 };
 

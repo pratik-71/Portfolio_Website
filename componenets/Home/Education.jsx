@@ -11,35 +11,35 @@ const Education = () => {
     {
       image: "/education/sahyog.jpeg",
       marksheet: "/education/Bsc-IT MarkSheet.jpeg",
-      name: "Sahyog College of Management Studies Thane",
-      program: "Bachelors in Information Technology",
+      name: "SAHYOG COLLEGE OF MANAGEMENT",
+      program: "BACHELORS IN INFORMATION TECHNOLOGY",
       grade: "9.18 CGPA",
       startyear: "2020",
       endyear: "2023",
       description:
-        "I had done Bachelor's degree in Information technology at Sahyog College of management studies, Thane, where I am honing my skills in computer science and information technology.",
+        "Specialized in Software Engineering and Database Management, maintaining high academic standards throughout the degree.",
     },
     {
       image: "/education/abhinav.jpeg",
       marksheet: "/education/Bsc-IT MarkSheet.jpeg",
-      name: "Abhinav Gyan Mandir Prashala Karjat",
-      program: "SSC Science - 11th-12th",
+      name: "ABHINAV GYAN MANDIR PRASHALA",
+      program: "SCIENCE - HIGHER SECONDARY",
       grade: "65 %",
       startyear: "2018",
       endyear: "2020",
       description:
-        "This program is equipping me with the knowledge and expertise required to thrive in the dynamic field of technology and software development.",
+        "Focused on Mathematics and Physics, building a strong foundation for technical studies in Information Technology.",
     },
     {
       image: "/education/ytps.jpeg",
       marksheet: "/education/10th MarkSheet.jpg",
-      name: "Yadavrao Tasgaonkar Public School",
+      name: "YADAVRAO TASGAONKAR SCHOOL",
       grade: "78 %",
-      program: "CBSE 5th-10th",
+      program: "CBSE SECONDARY EDUCATION",
       startyear: "2013",
       endyear: "2018",
       description:
-        "I developed a strong academic foundation through a diverse curriculum that prepared me for higher education in the technology field.",
+        "Developed core analytical and problem-solving skills through a diverse and rigorous CBSE curriculum.",
     },
   ];
 
@@ -53,33 +53,45 @@ const Education = () => {
   };
 
   return (
-    <div className="flex flex-col items-center py-10 px-2">
-      <h1 className="text-4xl font-extrabold mb-12 text-purple-400">- Education -</h1>
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="flex flex-col items-center py-24 px-4 relative overflow-hidden">
+      {/* Background Section Glow */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-primary-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="text-center space-y-4 mb-16">
+        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Academic History</h2>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase sm:leading-none">Learning <span className="text-primary-500">Journey</span></h1>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
         {education.map((edu, idx) => (
           <div
             key={edu.name}
-            className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col px-6 py-7 transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 hover:scale-105 group"
-            style={{ minHeight: 320, height: 'auto' }}
+            className="glass-card rounded-[3.5rem] p-10 interactive-element hover:border-primary-500/30 flex flex-col items-center text-center group"
           >
-            <div className="flex flex-col items-center gap-2 mb-2">
-              <div className="w-16 h-16 rounded-lg overflow-hidden border-2 border-white shadow-md mb-2">
-                <Image src={edu.image} width={64} height={64} alt={edu.name} className="object-cover w-full h-full" />
+            <div className="w-24 h-24 rounded-[2rem] overflow-hidden mb-8 border border-slate-100 group-hover:scale-110 transition-transform duration-500">
+               <Image src={edu.image} width={96} height={96} alt={edu.name} className="object-cover w-full h-full" />
+            </div>
+
+            <div className="flex-1 space-y-4">
+              <span className="text-primary-500 text-xs font-bold tracking-widest uppercase">{edu.startyear} — {edu.endyear}</span>
+              <h3 className="text-2xl font-bold tracking-tighter text-slate-950 uppercase leading-tight group-hover:text-primary-500 transition-colors duration-300">
+                {edu.name}
+              </h3>
+              <p className="text-slate-900 font-bold text-sm tracking-wide uppercase">{edu.program}</p>
+              <div className="inline-block px-4 py-1.5 bg-primary-500/10 rounded-full border border-primary-500/20">
+                 <span className="text-primary-500 font-bold text-xs">GRADE: {edu.grade}</span>
               </div>
-              <h2 className="font-bold text-lg text-center text-purple-100 drop-shadow-md">{edu.name}</h2>
-              <p className="text-purple-300 text-sm font-semibold">{edu.program}</p>
-              <p className="text-xs text-purple-200 italic">{edu.startyear} - {edu.endyear}</p>
-              <p className="text-purple-300 font-bold text-md mt-2">Grade: {edu.grade}</p>
+              <p className="text-slate-600 text-sm font-medium leading-relaxed pt-2">
+                {edu.description}
+              </p>
             </div>
-            <p className="text-xs text-gray-200 mt-2 text-center mb-4">{edu.description}</p>
-            <div className="flex w-full justify-center mt-auto">
-              <button
-                onClick={() => openMarksheetModal(edu.marksheet)}
-                className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-6 py-2 font-semibold text-base shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
-              >
-                View Marksheet
-              </button>
-            </div>
+
+            <button
+              onClick={() => openMarksheetModal(edu.marksheet)}
+              className="w-full mt-10 py-5 bg-primary-500/10 hover:bg-primary-500 text-primary-500 hover:text-white rounded-[2rem] font-bold tracking-widest transition-all duration-300 border border-primary-500/20 uppercase text-[10px]"
+            >
+              Examine Transcript
+            </button>
           </div>
         ))}
       </div>

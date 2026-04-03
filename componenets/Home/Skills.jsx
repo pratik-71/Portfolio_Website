@@ -2,218 +2,90 @@ import Image from 'next/image'
 import React from 'react'
 
 const Skills = () => {
-  const frontend = [
-    {
-      image: "/icons/html.png",
-      name: "HTML",
-    },
-    {
-      image: "/icons/css.png",
-      name: "Css",
-    },
-    {
-      image: "/icons/js.png",
-      name: "Javascript",
-    },
-    {
-      image: "/icons/tailwind.png",
-      name: "Tailwind Css",
-    },
-    {
-      image: "/icons/react.png",
-      name: "React Js",
-    },
-    {
-      image: "/icons/next js.png",
-      name: "Next Js",
-    },
-    {
-      image: "/icons/typescript.png",
-      name: "TypeScript",
-    },
-    {
-      image: "/icons/SEO.png",
-      name: "SEO",
-    },
-    {
-      image: "/icons/react.png",
-      name: "React Native",
-    },
-  ];
-  const backend = [
-    {
-      image: "/icons/node.png",
-      name: "Node Js",
-    },
-    {
-      image: "/icons/exress.png",
-      name: "Express Js",
-    },
-    {
-      image: "/icons/socket.svg",
-      name: "Socket.io",
-    },
-    {
-      image: "/icons/api.png",
-      name: "REST API",
-    },
-    {
-      image: "/icons/api.png",
-      name: "Third Party API",
-    },
-    {
-      image: "/icons/redis.png",
-      name: "Redis",
-    },
-    {
-      image: "/icons/microservice.png",
-      name: "Microservice Architecture",
-    },
-  ];
-  const database = [
-    {
-      image: "/icons/mongodb.png",
-      name: "MongoDB",
-    },
-    {
-      image: "/icons/mysql.png",
-      name: "MY-SQL",
-    },
-    {
-      image: "/icons/postgresql.png",
-      name: "Postgre-SQL",
-    },
-    {
-      image: "/icons/firebase.png",
-      name: "Firebase",
-    },
-    {
-      image: "/icons/supabase.png",
-      name: "Supabase",
-    },
-  ];
-  const languages = [
-    {
-      image: "/icons/java.png",
-      name: "Java",
-    },
-    {
-      image: "/icons/python.png",
-      name: "Python",
-    },
-    {
-      image: "/icons/api.png",
-      name: "C",
-    },
-    {
-      image: "/icons/react.png",
-      name: "React Native",
-    },
-  ];
-  const tools = [
-    {
-      image: "/icons/figma.png",
-      name: "Figma",
-    },
-    {
-      image: "/icons/docker.png",
-      name: "Docker",
-    },
-    {
-      image: "/icons/git.png",
-      name: "Git",
-    },
-    {
-      image: "/icons/github.png",
-      name: "Github",
-    },
-    {
-      image: "/icons/postman.png",
-      name: "Postman",
-    },
-    {
-      image: "/icons/data-pipeline.png",
-      name: "CI-CD pipelines",
-    },
-    {
-      image: "/icons/wordpress.png",
-      name: "WordPress",
-    },
-    {
-      image: "/icons/agentic-ai.png",
-      name: "Agentic AI",
-    },
-    {
-      image: "/icons/AI.png",
-      name: "AI",
-    },
-    {
-      image: "/icons/LLM.png",
-      name: "LLM Integration",
-    },
-    {
-      image: "/icons/agentic workflow.png",
-      name: "Agentic Workflows",
-    },
-    {
-      image: "/icons/aws.png",
-      name: "AWS",
-    },
-    {
-      image: "/icons/spark-logo.svg",
-      name: "Spark",
-    },
-  ];
+  const skills_data = {
+    "FRONTEND": [
+      { image: "/icons/html.png", name: "HTML" },
+      { image: "/icons/css.png", name: "CSS" },
+      { image: "/icons/js.png", name: "JAVASCRIPT" },
+      { image: "/icons/tailwind.png", name: "TAILWIND CSS" },
+      { image: "/icons/react.png", name: "REACT JS" },
+      { image: "/icons/next js.png", name: "NEXT JS" },
+      { image: "/icons/typescript.png", name: "TYPESCRIPT" },
+      { image: "/icons/react.png", name: "REACT NATIVE" },
+    ],
+    "BACKEND": [
+      { image: "/icons/node.png", name: "NODE JS" },
+      { image: "/icons/exress.png", name: "EXPRESS JS" },
+      { image: "/icons/socket.svg", name: "SOCKET.IO" },
+      { image: "/icons/api.png", name: "REST API" },
+      { image: "/icons/redis.png", name: "REDIS" },
+      { image: "/icons/microservice.png", name: "MICROSERVICES" },
+      { image: "/icons/LLM.png", name: "LLM INTEGRATION" },
+    ],
+    "DATABASE": [
+      { image: "/icons/mongodb.png", name: "MONGODB" },
+      { image: "/icons/mysql.png", name: "MYSQL" },
+      { image: "/icons/postgresql.png", name: "POSTGRESQL" },
+      { image: "/icons/firebase.png", name: "FIREBASE" },
+      { image: "/icons/supabase.png", name: "SUPABASE" },
+    ],
+    "LANGUAGES": [
+      { image: "/icons/java.png", name: "JAVA" },
+      { image: "/icons/python.png", name: "PYTHON" },
+      { image: "/icons/api.png", name: "C LANGUAGE" },
+    ],
+    "TOOLS": [
+      { image: "/icons/figma.png", name: "FIGMA" },
+      { image: "/icons/docker.png", name: "DOCKER" },
+      { image: "/icons/git.png", name: "GIT" },
+      { image: "/icons/github.png", name: "GITHUB" },
+      { image: "/icons/postman.png", name: "POSTMAN" },
+      { image: "/icons/data-pipeline.png", name: "CI/CD" },
+      { image: "/icons/aws.png", name: "AWS" },
+      { image: "/icons/agentic-ai.png", name: "AGENTIC AI" },
+    ]
+  };
 
-  const softSkills = [
-    {
-      name: "Good Communication Skill",
-    },
-    {
-      name: "Problem Solver",
-    },
-    {
-      name: "Collaborative",
-    },
-    {
-      name: "Adaptability",
-    },
-    {
-      name: "Quick Learner",
-    },
-  ];
+  const getCategoryIcon = (category) => {
+    return <div className="w-8 h-8 bg-primary-500 rounded-full" />;
+  };
 
   return (
-    <div className="flex flex-col items-center py-10 px-2">
-      <h1 className=" text-4xl font-extrabold mb-8 text-purple-400" >- Skills -</h1>
-      <div className="flex flex-wrap justify-center gap-8 items-stretch w-full max-w-7xl">
-        {/* Card generator */}
-        {[
-          { title: 'Frontend', skills: frontend },
-          { title: 'Backend', skills: backend },
-          { title: 'Tools', skills: tools },
-          { title: 'Database', skills: database },
-          { title: 'Languages', skills: languages },
-          { title: 'Soft Skills', skills: softSkills },
-        ].map((section, idx) => (
-          <div
-            key={section.title}
-            className="backdrop-blur-lg bg-white/5 border border-white/10 rounded-3xl shadow-2xl flex flex-col items-center px-6 py-8 w-full max-w-[350px] min-h-[280px] mb-4 transition-all duration-300 hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 group"
-          >
-            <p className="text-2xl font-bold text-white pb-4 tracking-wide group-hover:text-purple-300 transition-colors duration-300">{section.title}</p>
-            <div className="flex flex-wrap justify-center items-center gap-3">
-              {section.skills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-r from-[#2a0a3c] to-[#0a1a2f] flex items-center justify-center gap-2 px-4 py-2 rounded-full shadow-md border border-white/10 hover:scale-110 hover:shadow-purple-500/30 transition-all duration-200 cursor-pointer"
-                >
-                  {skill.image && <Image src={skill.image} height={28} width={28} alt={skill.name} />}
-                  <span className="text-white text-sm font-medium tracking-wide">{skill.name}</span>
-                </div>
-              ))}
+    <div className="flex flex-col items-center py-24 px-4 min-h-screen relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="text-center space-y-4 mb-16">
+        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Expertise</h2>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase">Mastery & <span className="text-primary-500">Stacks</span></h1>
+      </div>
+
+      <div className="w-full max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {Object.entries(skills_data).map(([category, skills]) => (
+            <div
+              key={category}
+              className="glass-card rounded-[3.5rem] p-10 flex flex-col items-center text-center group interactive-element"
+            >
+              <h2 className="text-3xl font-bold tracking-tighter text-slate-950 mb-8 uppercase leading-tight group-hover:text-primary-500 transition-colors duration-300">
+                {category}
+              </h2>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                {skills.map((skill, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col items-center gap-3 p-4 bg-white rounded-3xl border border-slate-100 hover:border-primary-500/30 transition-all duration-300 shadow-sm hover:shadow-md"
+                  >
+                    <div className="relative w-12 h-12 transition-all duration-500">
+                       <Image src={skill.image} fill alt={skill.name} className="object-contain" />
+                    </div>
+                    <span className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

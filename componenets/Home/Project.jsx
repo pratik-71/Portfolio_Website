@@ -21,112 +21,108 @@ const Project = () => {
   const projects = [
     {
       image: "/projects/memories.png",
-      name: "Memories: Timeline Tracker",
-      technology: "React Native, Expo, MongoDB",
+      name: "MEMORIES: TIMELINE TRACKER",
+      technology: "REACT NATIVE, EXPO, MONGODB",
       description:
-        "A premium iOS application for tracking life's timelines and milestones. Users can effortlessly create visual journals of their memories, track durations of important events, and maintain a aesthetic digital history. Features include live-updating duration counters and a sophisticated, glassmorphism-inspired UI.",
+        "A premium iOS application for tracking life's timelines and milestones. Users can effortlessly create visual journals of their memories, track durations of important events, and maintain a aesthetic digital history.",
       link: "https://apps.apple.com/us/app/memories-timeline-tracker/id6758773374",
     },
     {
       image: "/projects/shoe_shop.png",
-      name: "OXY Shoe Ecommerce Shop",
-      technology: "TailWind CSS, React Js, Express Js, Mongo-DB",
+      name: "OXY SHOE ECOMMERCE",
+      technology: "TAILWIND CSS, REACT JS, NODE JS",
       description:
-        "A comprehensive shoe e-commerce platform with a modern frontend and robust backend. Customers can easily browse a wide selection of footwear, filter by size and style, and enjoy a seamless checkout experience. The backend manages inventory and user accounts, while responsive design ensures accessibility across all devices.",
+        "A comprehensive shoe e-commerce platform with a modern frontend and robust backend. Features include size filtering, seamless checkout, and inventory management.",
       link: "https://github.com/pratik-71/Shoes_Online_Shop",
     },
     {
       image: "/projects/2D RPG GAME.png",
-      name: "2D Multiplayer RPG Game",
-      technology: "TailWind CSS, React Js, Phaser 3, Node Js, Socket.io",
+      name: "MULTIPLAYER RPG GAME",
+      technology: "PHASER 3, SOCKET.IO, REACT JS",
       description:
-        "A 2D Multiplayer RPG Game built with Phaser 3, Node.js, and Socket.io. Players can join a game room, move around, and interact with other players in real-time. The game features a simple combat system and a team play mode. gives real ime fun experience also message system is also implemented",
+        "A 2D Multiplayer RPG built with Phaser 3 and Socket.io. Features real-time player movement, combat systems, and room-based matchmaking.",
       link: "https://github.com/pratik-71/2D_RPG.git",
     },
   ];
 
-  // Staggered fade-in animation using Intersection Observer
   useEffect(() => {
-    if (!cardRefs.current) return;
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const idx = Number(entry.target.getAttribute('data-idx'));
-            setVisible((prev) => {
-              if (prev.includes(idx)) return prev;
-              return [...prev, idx];
-            });
+            setVisible((prev) => [...new Set([...prev, idx])]);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
-    cardRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    cardRefs.current.forEach((ref) => ref && observer.observe(ref));
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="flex flex-col items-center py-10 px-2 md:px-8">
-      <h1 className="text-4xl font-extrabold mb-8 text-purple-400">- Projects -</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl">
+    <div className="flex flex-col items-center py-24 px-4 relative overflow-hidden text-slate-900">
+      {/* Ambient Glow */}
+      <div className="ambient-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5" />
+
+      <div className="text-center space-y-4 mb-16">
+        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Portfolio</h2>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase">Featured <span className="text-primary-500">Projects</span></h1>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
         {projects.map((pro, index) => (
           <div
             key={index}
             ref={el => cardRefs.current[index] = el}
             data-idx={index}
-            className={`relative group bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col w-full max-w-[420px] min-h-[540px] overflow-hidden transition-all duration-700 ease-out
-              hover:shadow-purple-700/30 hover:border-purple-400/40 hover:-translate-y-2 cursor-pointer
-              ${visible.includes(index)
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-10 pointer-events-none'}
+            className={`group glass-card rounded-[3.5rem] overflow-hidden flex flex-col transition-all duration-700 ease-out interactive-element border-slate-100/50
+              ${visible.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'}
             `}
-            style={{ transitionDelay: visible.includes(index) ? `${index * 120}ms` : '0ms' }}
+            style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <div className="w-full h-56 overflow-hidden">
+            <div className="relative h-64 w-full overflow-hidden">
               <Image
                 src={pro.image}
+                fill
+                alt={pro.name}
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
                 onClick={() => openImageModal(pro.image)}
-                alt="Project Image"
-                width={400}
-                height={224}
-                className="object-cover w-full h-full rounded-t-2xl transition-all duration-200 hover:scale-105"
-                style={{ cursor: 'zoom-in' }}
               />
+              <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none" />
             </div>
-            <div className="flex flex-col flex-1 px-6 py-4">
-              <h3 className="text-2xl font-bold text-white mb-2 text-center group-hover:text-purple-300 transition-colors duration-300">
-                {pro.name}
-              </h3>
-              <div className="flex flex-wrap justify-center gap-2 mb-3">
+
+            <div className="p-8 flex flex-col flex-1">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {pro.technology.split(", ").map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-gradient-to-r from-[#2a0a3c] to-[#0a1a2f] text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md border border-white/10 hover:scale-110 hover:shadow-purple-500/30 transition-all duration-200"
-                  >
+                  <span key={idx} className="text-[10px] font-black tracking-widest text-primary-500 bg-primary-500/10 px-3 py-1 rounded-full uppercase">
                     {tech}
                   </span>
                 ))}
               </div>
-              <p className="text-sm text-gray-300 text-center mb-6 flex-1">
+
+              <h3 className="text-2xl font-black tracking-tighter text-slate-950 mb-4 group-hover:text-primary-500 transition-colors uppercase leading-tight">
+                {pro.name}
+              </h3>
+
+              <p className="text-slate-500 text-sm font-medium mb-8 flex-1 leading-relaxed">
                 {pro.description}
               </p>
-              <div className="flex justify-center mt-auto">
-                <a
-                  href={pro.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group/button bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white rounded-xl px-6 py-2 font-semibold text-base shadow-lg transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-purple-500/40 focus:outline-none focus:ring-2 focus:ring-purple-400"
-                >
-                  {pro.link?.includes('github.com') ? 'GitHub' : 'View App'}
-                </a>
-              </div>
+
+              <a
+                href={pro.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-5 bg-primary-500 text-white rounded-[2rem] font-black tracking-widest text-center transition-all duration-300 hover:shadow-lg uppercase text-sm"
+              >
+                {pro.link?.includes('github.com') ? 'Explore Code' : 'Launch Project'}
+              </a>
             </div>
           </div>
         ))}
       </div>
+
       <ImageViewer
         isOpen={isModalOpen}
         onClose={closeImageModal}

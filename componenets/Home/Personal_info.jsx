@@ -2,20 +2,21 @@
 import React, { useCallback } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
+import { FaGithub, FaLinkedin, FaCode } from "react-icons/fa";
 
 const social_media = [
   {
-    image: "/icons/leetcode.png",
+    icon: <FaCode className="text-2xl" />,
     text: "Leetcode",
     link: "https://leetcode.com/u/pratik___7/"
   },
   {
-    image: "/icons/github.png",
+    icon: <FaGithub className="text-2xl" />,
     text: "Github",
     link: "https://github.com/pratik-71"
   },
   {
-    image: "/icons/linkedin.png",
+    icon: <FaLinkedin className="text-2xl" />,
     text: "Linkedin",
     link: "https://www.linkedin.com/in/pratik-dabhade-a9a600175/"
   },
@@ -24,17 +25,14 @@ const social_media = [
 const SocialMediaButton = React.memo(({ item }) => (
   <Link href={item.link} target="_blank" rel="noopener noreferrer">
     <button
-      className="group relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-2xl p-4 transition-all duration-300 hover:scale-105 hover:bg-white/10"
+      className="group relative glass-card rounded-[2rem] p-5 interactive-element hover:bg-slate-50 hover:border-primary-500/20"
       title={item.text}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      <div className="relative z-10 flex flex-col items-center gap-3">
-        <img
-          src={item.image}
-          className="w-8 h-8 object-contain transition-all duration-300"
-          alt={item.text}
-        />
-        <p className="text-xs font-medium text-white/80 group-hover:text-white transition-colors duration-300">
+      <div className="relative z-10 flex flex-col items-center gap-2">
+        <div className="text-primary-500 transition-colors duration-300">
+          {item.icon}
+        </div>
+        <p className="text-[10px] uppercase tracking-widest font-black text-slate-400 group-hover:text-primary-500 transition-colors duration-300">
           {item.text}
         </p>
       </div>
@@ -44,41 +42,89 @@ const SocialMediaButton = React.memo(({ item }) => (
 
 SocialMediaButton.displayName = 'SocialMediaButton';
 
+const StatCounter = ({ value, label, suffix = "" }) => {
+  const [count, setCount] = React.useState(0);
+  const elementRef = React.useRef(null);
+  const [hasStarted, setHasStarted] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) setHasStarted(true);
+    }, { threshold: 0.5 });
+    
+    if (elementRef.current) observer.observe(elementRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!hasStarted) return;
+    
+    let start = 0;
+    const end = value;
+    const duration = 2000; // 2 seconds
+    let startTime = null;
+
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [hasStarted, value]);
+
+  return (
+    <div ref={elementRef} className="text-center group">
+      <div className="text-5xl md:text-6xl font-black tracking-tighter text-slate-950 group-hover:text-primary-500 transition-colors">
+        {count}{suffix}
+      </div>
+      <div className="text-[10px] md:text-xs font-black tracking-[0.2em] text-slate-400 group-hover:text-slate-600 transition-colors mt-2">
+        {label}
+      </div>
+    </div>
+  );
+};
+
 const PersonalInfo = () => {
   const openResume = useCallback(() => {
     window.open("/Pratik Dabhade.pdf", "_blank");
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <div className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
+      {/* Background Decorative Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-4xl w-full relative z-10">
-        {/* Main Content Container */}
-        <div className="text-center space-y-6 pt-8">
-          {/* Greeting */}
-          <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
-              Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                Pratik Dabhade
-              </span>
-            </h1>
-          
+      <div className="max-w-5xl w-full relative z-10">
+        <div className="text-center space-y-10">
+          {/* Greeting & Name */}
+          <div className="space-y-4 relative group">
+            
+            <div className="relative inline-block">
+              <h1 className="text-7xl md:text-8xl lg:text-9xl font-[800] tracking-tighter leading-[0.85] text-slate-950">
+                PRATIK <br className="hidden md:block"/>
+                <span className="text-primary-600">
+                  DABHADE
+                </span>
+              </h1>
+            </div>
           </div>
 
           {/* Role Animation */}
-          <div className="flex items-center justify-center gap-3 text-xl md:text-2xl lg:text-3xl font-semibold">
-            <span className="text-white/70">I&apos;m a</span>
-            <span className="text-purple-400">
+          <div className="inline-flex items-center glass-card px-8 py-4 rounded-[3.5rem] text-xl md:text-3xl font-bold tracking-tight border-primary-500/10">
+            <span className="text-slate-500 mr-3 lowercase tracking-wide font-normal italic">I am a</span>
+            <span className="text-primary-500">
               <TypeAnimation
                 sequence={[
-                  "Full Stack Developer",
+                  "FULL STACK DEVELOPER",
                   2000,
-                  "Web Developer", 
+                  "UI/UX ENTHUSIAST", 
                   2000,
-                  "Freelancer",
+                  "PROBLEM SOLVER",
                   2000,
-                  
                 ]}
                 wrapper="span"
                 speed={50}
@@ -90,38 +136,45 @@ const PersonalInfo = () => {
 
           {/* Description */}
           <div className="max-w-2xl mx-auto">
-            <p className="text-lg md:text-xl text-white/60 leading-relaxed">
-              I am a motivated and versatile individual, always eager to take on new challenges.
-              With a passion for learning and a dedication to delivering high-quality results, 
-              I bring a positive attitude and growth mindset to every project.
+            <p className="text-lg md:text-2xl text-slate-600 font-medium leading-relaxed">
+              Crafting high-velocity digital experiences with 
+              <span className="text-slate-950 mx-1.5">Modern Tech Stacks</span> 
+              and a passion for 
+              <span className="text-slate-950 mx-1.5">Visual Excellence.</span>
             </p>
           </div>
 
-          {/* CTA Button */}
-          <div className="pt-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
             <button
               onClick={openResume}
-              className="group relative overflow-hidden bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+              className="group px-10 py-5 bg-primary-500 text-white rounded-[2.5rem] font-black  text-xl interactive-element border-2 border-primary-500"
             >
-              <span className="relative z-10">View Resume</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              DOWNLOAD RESUME
             </button>
+            <Link href="#contact">
+              <button className="group px-10 py-5 glass-card text-slate-950 rounded-[2.5rem] font-black  text-xl interactive-element border-slate-200 hover:border-primary-500/50">
+                LET'S TALK
+              </button>
+            </Link>
+          </div>
+
+          {/* Stats Counter */}
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 pt-8">
+            <StatCounter label="PROJECTS" value={15} />
+            <StatCounter label="EXPERIENCE" value={2} suffix="Y+" />
+            <StatCounter label="COMMITS" value={500} suffix="+" />
           </div>
 
           {/* Social Media */}
-          <div className="pt-8">
-            <p className="text-white/50 text-sm mb-4 font-medium">Connect with me</p>
-            <div className="flex justify-center gap-4 md:gap-6">
+          <div className="pt-12">
+            <div className="flex justify-center gap-6">
               {social_media.map((item, index) => (
                 <SocialMediaButton key={index} item={item} />
               ))}
             </div>
           </div>
         </div>
-
-        {/* Decorative Elements (optional, can be removed for cleaner look) */}
-        <div className="pointer-events-none absolute top-20 left-20 w-72 h-72 bg-purple-900/10 rounded-full blur-3xl z-0"></div>
-        <div className="pointer-events-none absolute bottom-20 right-20 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl z-0"></div>
       </div>
     </div>
   );
