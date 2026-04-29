@@ -25,14 +25,14 @@ const social_media = [
 const SocialMediaButton = React.memo(({ item }) => (
   <Link href={item.link} target="_blank" rel="noopener noreferrer">
     <button
-      className="group relative glass-card rounded-[2rem] p-5 interactive-element hover:bg-slate-50 hover:border-primary-500/20"
+      className="group relative glass-card rounded-[2rem] p-5 interactive-element hover:bg-white/5 hover:border-gold/20"
       title={item.text}
     >
       <div className="relative z-10 flex flex-col items-center gap-2">
-        <div className="text-primary-500 transition-colors duration-300">
+        <div className="text-gold transition-colors duration-300">
           {item.icon}
         </div>
-        <p className="text-[10px] uppercase tracking-widest font-black text-slate-400 group-hover:text-primary-500 transition-colors duration-300">
+        <p className="text-[10px] uppercase tracking-widest font-black text-white/40 group-hover:text-gold transition-colors duration-300">
           {item.text}
         </p>
       </div>
@@ -78,10 +78,10 @@ const StatCounter = ({ value, label, suffix = "" }) => {
 
   return (
     <div ref={elementRef} className="text-center group">
-      <div className="text-5xl md:text-6xl font-black tracking-tighter text-slate-950 group-hover:text-primary-500 transition-colors">
+      <div className="text-3xl md:text-4xl font-black tracking-tighter text-white group-hover:text-gold transition-colors">
         {count}{suffix}
       </div>
-      <div className="text-[10px] md:text-xs font-black tracking-[0.2em] text-slate-400 group-hover:text-slate-600 transition-colors mt-2">
+      <div className="text-[9px] md:text-[10px] font-black tracking-[0.2em] text-white/40 group-hover:text-white/60 transition-colors mt-1 uppercase">
         {label}
       </div>
     </div>
@@ -94,86 +94,92 @@ const PersonalInfo = () => {
   }, []);
 
   return (
-    <div className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
+    <div className="relative min-h-[85vh] flex items-center justify-center px-4 overflow-hidden pt-20">
       {/* Background Decorative Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-5xl w-full relative z-10">
-        <div className="text-center space-y-10">
-          {/* Greeting & Name */}
-          <div className="space-y-4 relative group">
-            
-            <div className="relative inline-block">
-              <h1 className="text-7xl md:text-8xl lg:text-9xl font-[800] tracking-tighter leading-[0.85] text-slate-950">
-                PRATIK <br className="hidden md:block"/>
-                <span className="text-primary-600">
-                  DABHADE
-                </span>
+      <div className="max-w-6xl w-full relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Content */}
+          <div className="lg:col-span-7 space-y-8 text-center lg:text-left order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full border-gold/20 animate-pulse">
+               <div className="w-2 h-2 bg-gold rounded-full" />
+               <span className="text-[10px] font-black tracking-widest text-gold uppercase">Available for work</span>
+            </div>
+
+            <div className="space-y-2">
+              <h1 className="text-5xl md:text-6xl lg:text-8xl font-[900] tracking-tighter leading-[0.9] text-white uppercase">
+                PRATIK <br/>
+                <span className="text-gold">DABHADE</span>
               </h1>
             </div>
-          </div>
 
-          {/* Role Animation */}
-          <div className="inline-flex items-center glass-card px-8 py-4 rounded-[3.5rem] text-xl md:text-3xl font-bold tracking-tight border-primary-500/10">
-            <span className="text-slate-500 mr-3 lowercase tracking-wide font-normal italic">I am a</span>
-            <span className="text-primary-500">
-              <TypeAnimation
-                sequence={[
-                  "FULL STACK DEVELOPER",
-                  2000,
-                  "UI/UX ENTHUSIAST", 
-                  2000,
-                  "PROBLEM SOLVER",
-                  2000,
-                ]}
-                wrapper="span"
-                speed={50}
-                style={{ display: "inline-block" }}
-                repeat={Infinity}
-              />
-            </span>
-          </div>
+            <div className="inline-flex items-center glass-card px-5 py-2.5 rounded-[3.5rem] text-lg md:text-xl font-bold tracking-tight border-gold/10">
+              <span className="text-white/50 mr-2 lowercase tracking-wide font-normal italic">I am a</span>
+              <span className="text-gold">
+                <TypeAnimation
+                  sequence={[
+                    "FULL STACK DEVELOPER",
+                    2000,
+                    "CTO", 
+                    2000,
+                    "PROBLEM SOLVER",
+                    2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  style={{ display: "inline-block" }}
+                  repeat={Infinity}
+                />
+              </span>
+            </div>
 
-          {/* Description */}
-          <div className="max-w-2xl mx-auto">
-            <p className="text-lg md:text-2xl text-slate-600 font-medium leading-relaxed">
+            <p className="text-base md:text-lg text-white/60 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
               Crafting high-velocity digital experiences with 
-              <span className="text-slate-950 mx-1.5">Modern Tech Stacks</span> 
+              <span className="text-white mx-1.5">Modern Tech Stacks</span> 
               and a passion for 
-              <span className="text-slate-950 mx-1.5">Visual Excellence.</span>
+              <span className="text-white mx-1.5">Visual Excellence.</span>
             </p>
-          </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-            <button
-              onClick={openResume}
-              className="group px-10 py-5 bg-primary-500 text-white rounded-[2.5rem] font-black  text-xl interactive-element border-2 border-primary-500"
-            >
-              DOWNLOAD RESUME
-            </button>
-            <Link href="#contact">
-              <button className="group px-10 py-5 glass-card text-slate-950 rounded-[2.5rem] font-black  text-xl interactive-element border-slate-200 hover:border-primary-500/50">
-                LET'S TALK
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <button
+                onClick={openResume}
+                className="group px-8 py-4 bg-gold text-black rounded-[2.5rem] font-black text-base interactive-element border-2 border-gold shadow-gold-glow hover:shadow-gold-glow-strong"
+              >
+                DOWNLOAD RESUME
               </button>
-            </Link>
-          </div>
-
-          {/* Stats Counter */}
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 pt-8">
-            <StatCounter label="PROJECTS" value={15} />
-            <StatCounter label="EXPERIENCE" value={2} suffix="Y+" />
-            <StatCounter label="COMMITS" value={500} suffix="+" />
-          </div>
-
-          {/* Social Media */}
-          <div className="pt-12">
-            <div className="flex justify-center gap-6">
-              {social_media.map((item, index) => (
-                <SocialMediaButton key={index} item={item} />
-              ))}
+              <Link href="#contact">
+                <button className="group px-8 py-4 glass-card text-white rounded-[2.5rem] font-black text-base interactive-element border-white/10 hover:border-gold/50">
+                  LET'S TALK
+                </button>
+              </Link>
             </div>
           </div>
+
+          {/* Right Stats Grid */}
+          <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center lg:items-end gap-6">
+             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 w-full sm:w-auto">
+                {[
+                  { label: "PROJECTS", value: 15, suffix: "" },
+                  { label: "EXPERIENCE", value: 1, suffix: " YEAR" },
+                  { label: "COMMITS", value: 500, suffix: "+" }
+                ].map((stat, i) => (
+                  <div key={i} className="glass-card p-6 rounded-[2.5rem] border-white/5 hover:border-gold/20 transition-all duration-500 group min-w-[200px]">
+                     <div className="text-4xl md:text-5xl font-black tracking-tighter text-white group-hover:text-gold transition-colors">
+                        <StatCounter value={stat.value} label={stat.label} suffix={stat.suffix} />
+                     </div>
+                  </div>
+                ))}
+             </div>
+
+             <div className="flex gap-4 mt-4">
+                {social_media.map((item, index) => (
+                  <SocialMediaButton key={index} item={item} />
+                ))}
+             </div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ import Experience from "@/componenets/Home/Experience";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-50 font-sans selection:bg-primary-500/10">
+    <div className="min-h-screen bg-black font-sans selection:bg-gold/10">
       {/* Ambient Glows */}
       <div className="ambient-glow -top-24 -left-24" />
       <div className="ambient-glow top-1/2 -right-24" />
@@ -20,31 +20,31 @@ export default function Home() {
         <Navbar />
 
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <section id="about" className="py-20">
+          <section id="about" className="py-12">
             <Personal_info />
           </section>
           
-          <section id="experience" className="py-20">
+          <section id="experience" className="py-12">
             <Experience />
           </section>
           
-          <section id="skills" className="py-20">
+          <section id="skills" className="py-12">
             <Skills />
           </section>
      
-          <section id="project" className="py-20">
+          <section id="project" className="py-12">
             <Project />
           </section>
           
-          <section id="education" className="py-20">
+          <section id="education" className="py-12">
             <Education />
           </section>
           
-          <section id="certificates" className="py-20">
+          <section id="certificates" className="py-12">
             <Certificates />
           </section>
           
-          <section id="contact" className="py-20 pb-32">
+          <section id="contact" className="py-12 pb-24">
             <Contact />
           </section>
         </main>

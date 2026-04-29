@@ -14,10 +14,10 @@ const ImageViewer = ({ isOpen, onClose, imageSrc, width = 800 }) => {
 
   return createPortal(
     <div className="fixed inset-0 h-screen w-screen bg-black/80 backdrop-blur-sm flex items-center justify-center z-[9999] p-4 sm:p-8">
-      <div className="relative bg-gray-900/90 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl flex flex-col items-center gap-6 max-w-[95vw] max-h-[95vh] sm:max-w-[90vw] sm:max-h-[90vh]">
+      <div className="relative glass-card backdrop-blur-2xl p-6 rounded-[2.5rem] flex flex-col items-center gap-6 max-w-[95vw] max-h-[95vh] sm:max-w-[90vw] sm:max-h-[90vh]">
         <button
           onClick={onClose}
-          className="absolute -top-3 -right-3 bg-gray-800 text-white w-10 h-10 flex items-center justify-center rounded-full text-2xl font-bold border border-white/20 shadow-lg hover:bg-red-500 hover:text-white transition-all duration-300 z-10"
+          className="absolute -top-3 -right-3 bg-gold text-black w-10 h-10 flex items-center justify-center rounded-full text-2xl font-bold shadow-gold-glow hover:scale-110 transition-all duration-300 z-10"
           aria-label="Close modal"
         >
           &times;
@@ -34,7 +34,7 @@ const ImageViewer = ({ isOpen, onClose, imageSrc, width = 800 }) => {
         <a
           href={imageSrc}
           download
-          className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white font-semibold rounded-xl px-8 py-3 shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:shadow-[0_0_25px_rgba(168,85,247,0.6)] hover:-translate-y-1 transition-all duration-300"
+          className="bg-gold text-black font-bold rounded-xl px-10 py-4 shadow-gold-glow hover:shadow-gold-glow-strong hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-xs"
         >
           Download Document
         </a>

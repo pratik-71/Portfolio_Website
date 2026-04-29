@@ -6,10 +6,10 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-950 font-sans antialiased;
+    @apply bg-black text-white/80 font-sans antialiased selection:bg-gold/30 selection:text-gold;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight text-slate-950;
+    @apply font-bold tracking-tight text-white;
   }
 }
 
@@ -25,14 +25,19 @@ html {
   scrollbar-width: none;
 }
 
-/* Ambient Glow Effect */
+/* Ambient Glow Effect - Golden */
 .ambient-glow {
-  @apply pointer-events-none fixed h-[600px] w-[600px] rounded-full bg-primary-500 opacity-[0.08] blur-[150px] z-[-1];
+  @apply pointer-events-none fixed h-[600px] w-[600px] rounded-full bg-gold opacity-[0.05] blur-[150px] z-[-1];
 }
 
-/* Light Mode Glassmorphism with Green Border */
+/* Dark Mode Luxury Glassmorphism */
 .glass-card {
-  @apply backdrop-blur-xl bg-white/70 border border-primary-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  @apply backdrop-blur-xl bg-white/[0.05] border border-white/[0.12] shadow-[0_8px_32px_0_rgba(0,0,0,0.5)];
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-gold-light to-gold-dark;
 }
 
 /* Smooth Interactive Transition */
@@ -41,5 +46,5 @@ html {
 }
 
 ::selection {
-    @apply bg-primary-500/20 text-primary-500;
+    @apply bg-gold/20 text-gold;
 }

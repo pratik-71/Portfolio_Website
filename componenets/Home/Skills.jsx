@@ -47,26 +47,26 @@ const Skills = () => {
   };
 
   const getCategoryIcon = (category) => {
-    return <div className="w-8 h-8 bg-primary-500 rounded-full" />;
+    return <div className="w-8 h-8 bg-gold rounded-full" />;
   };
 
   return (
     <div className="flex flex-col items-center py-24 px-4 min-h-screen relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-500/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="text-center space-y-4 mb-16">
-        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Expertise</h2>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase">Mastery & <span className="text-primary-500">Stacks</span></h1>
+      <div className="text-center space-y-3 mb-12">
+        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Expertise</h2>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase">Mastery & <span className="text-gold">Stacks</span></h1>
       </div>
 
       <div className="w-full max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(skills_data).map(([category, skills]) => (
             <div
               key={category}
-              className="glass-card rounded-[3.5rem] p-10 flex flex-col items-center text-center group interactive-element"
+              className="glass-card rounded-[3.5rem] p-8 flex flex-col items-center text-center group interactive-element"
             >
-              <h2 className="text-3xl font-bold tracking-tighter text-slate-950 mb-8 uppercase leading-tight group-hover:text-primary-500 transition-colors duration-300">
+              <h2 className="text-2xl font-bold tracking-tighter text-white mb-6 uppercase leading-tight group-hover:text-gold transition-colors duration-300">
                 {category}
               </h2>
 
@@ -74,12 +74,12 @@ const Skills = () => {
                 {skills.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center gap-3 p-4 bg-white rounded-3xl border border-slate-100 hover:border-primary-500/30 transition-all duration-300 shadow-sm hover:shadow-md"
+                    className="flex flex-row items-center gap-3 px-4 py-2.5 bg-white/5 rounded-full border border-white/10 hover:border-gold/30 transition-all duration-300 shadow-sm hover:shadow-gold-glow group/skill w-full sm:w-auto"
                   >
-                    <div className="relative w-12 h-12 transition-all duration-500">
-                       <Image src={skill.image} fill alt={skill.name} className="object-contain" />
+                    <div className="relative w-7 h-7 flex items-center justify-center bg-white/10 rounded-full p-1.5 group-hover/skill:bg-white/20 transition-colors duration-300">
+                       <Image src={skill.image} fill alt={skill.name} className="object-contain p-1" />
                     </div>
-                    <span className="text-[10px] font-bold tracking-widest text-slate-500 uppercase">{skill.name}</span>
+                    <span className="text-xs font-bold tracking-wide text-white group-hover:text-gold transition-colors whitespace-nowrap">{skill.name}</span>
                   </div>
                 ))}
               </div>

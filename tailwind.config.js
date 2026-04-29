@@ -9,18 +9,23 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          50: '#ecfdf5',
-          500: '#10b981', // Your main Emerald accent
-          600: '#059669',
-          900: '#064e3b',
+          50: '#fffcf0',
+          500: '#C5A059', // Premium Golden
+          600: '#A68341',
+          900: '#735721',
+        },
+        gold: {
+          light: '#E4C07B',
+          DEFAULT: '#C5A059',
+          dark: '#A68341',
         },
         accent: {
-          50: '#f8fafc',  // Slate-50
-          950: '#020617', // Your Slate black
+          50: '#0A0A0A',  // Rich Black
+          950: '#ffffff', // Pure White
         },
         slate: {
-          950: '#020617',
-          50: '#f8fafc',
+          950: '#000000',
+          50: '#ffffff',
         }
       },
       borderRadius: {
@@ -32,8 +37,8 @@ module.exports = {
         outfit: ['Outfit', 'sans-serif'],
       },
       boxShadow: {
-        'emerald-glow': '0 0 20px rgba(16, 185, 129, 0.1)',
-        'emerald-glow-strong': '0 0 30px rgba(16, 185, 129, 0.2)',
+        'gold-glow': '0 0 20px rgba(197, 160, 89, 0.15)',
+        'gold-glow-strong': '0 0 30px rgba(197, 160, 89, 0.3)',
       },
       screens:{
         'custom_1024px':'1024px',

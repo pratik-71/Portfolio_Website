@@ -42,30 +42,30 @@ const Certificates = () => {
       {/* Background Section Glow */}
       <div className="ambient-glow top-1/2 left-1/4 opacity-5" />
 
-      <div className="text-center space-y-4 mb-16">
-        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Recognition</h2>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase">Expert <span className="text-primary-500">Credentials</span></h1>
+      <div className="text-center space-y-3 mb-12">
+        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Recognition</h2>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase">Expert <span className="text-gold">Credentials</span></h1>
       </div>
 
-      <div className="relative flex items-center justify-center w-full max-w-6xl min-h-[500px] select-none" style={{ perspective: 1500 }}>
+      <div className="relative flex items-center justify-center w-full max-w-6xl min-h-[400px] select-none" style={{ perspective: 1500 }}>
         {/* Left Arrow */}
         <button
-          className="absolute left-4 md:left-10 z-30 w-14 h-14 bg-primary-500 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto"
+          className="absolute left-4 md:left-10 z-30 w-14 h-14 bg-gold text-black rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto"
           onClick={handleLeft}
         >
           <FaChevronLeft className="text-xl" />
         </button>
 
         {/* 3D Carousel Cards */}
-        <div className="relative w-full flex items-center justify-center h-[500px]" style={{ transformStyle: 'preserve-3d' }}>
+        <div className="relative w-full flex items-center justify-center h-[400px]" style={{ transformStyle: 'preserve-3d' }}>
           {positions.map((pos) => {
             const idx = getCertIdx(pos.offset);
             const isCenter = pos.offset === 0;
             return (
               <div
                 key={`${idx}-${pos.offset}`}
-                className={`absolute w-[340px] md:w-[400px] aspect-[4/5] glass-card rounded-[3.5rem] p-4 flex flex-col transition-all duration-700 ease-out cursor-pointer
-                  ${isCenter ? 'border-primary-500/50' : ''}
+                className={`absolute w-[280px] md:w-[320px] aspect-[4/5] glass-card rounded-[3rem] p-3 flex flex-col transition-all duration-700 ease-out cursor-pointer
+                   ${isCenter ? 'border-gold/50' : ''}
                 `}
                 style={{
                   transform: `translateX(${pos.x}px) translateZ(${pos.z}px) rotateY(${pos.rotate}deg) scale(${pos.scale})`,
@@ -75,28 +75,28 @@ const Certificates = () => {
                 }}
                 onClick={() => isCenter && openMarksheetModal(Certificate[idx].image)}
               >
-                <div className="relative flex-1 rounded-[2.5rem] overflow-hidden mb-6 border border-slate-100">
+                <div className="relative flex-1 rounded-[2.5rem] overflow-hidden mb-6 border border-white/10">
                   <Image
                     src={Certificate[idx].image}
                     alt={Certificate[idx].name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-primary-500/5" />
+                  <div className="absolute inset-0 bg-gold/5" />
                 </div>
                 
                 <div className="px-4 pb-6 text-center space-y-4">
-                  <h3 className={`font-bold tracking-tighter leading-tight uppercase transition-colors duration-300
-                    ${isCenter ? 'text-primary-500 text-2xl' : 'text-slate-400 text-lg'}`}
+                   <h3 className={`font-bold tracking-tighter leading-tight uppercase transition-colors duration-300
+                    ${isCenter ? 'text-gold text-xl' : 'text-white/40 text-base'}`}
                   >
                     {Certificate[idx].name}
                   </h3>
                   {isCenter && (
                     <button
-                      className="w-full py-4 bg-primary-500 text-white rounded-2xl font-bold tracking-widest text-xs transition-all duration-300 uppercase shadow-lg"
+                      className="w-full py-3 bg-gold text-black rounded-2xl font-bold tracking-widest text-[10px] transition-all duration-300 uppercase shadow-gold-glow"
                       onClick={() => openMarksheetModal(Certificate[idx].image)}
                     >
-                      Authenticate
+                      view
                     </button>
                   )}
                 </div>
@@ -107,7 +107,7 @@ const Certificates = () => {
 
         {/* Right Arrow */}
         <button
-          className="absolute right-4 md:right-10 z-30 w-14 h-14 bg-primary-500 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto"
+          className="absolute right-4 md:right-10 z-30 w-14 h-14 bg-gold text-black rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto"
           onClick={handleRight}
         >
           <FaChevronRight className="text-xl" />

@@ -30,19 +30,19 @@ const Contact = () => {
     <div className="flex flex-col items-center py-24 px-4 relative">
       <div className="ambient-glow bottom-0 left-1/2 -translate-x-1/2 opacity-10" />
 
-      <div className="text-center space-y-4 mb-16">
-        <h2 className="text-primary-500 font-bold tracking-widest uppercase">Get In Touch</h2>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-950 uppercase sm:leading-none">Direct <span className="text-primary-500">Channels</span></h1>
+      <div className="text-center space-y-3 mb-12">
+        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Get In Touch</h2>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase sm:leading-none">Direct <span className="text-gold">Channels</span></h1>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8 max-w-5xl mx-auto w-full">
         {contacts.map((con, index) => (
-          <Link href={con.link} target="_blank" rel="noopener noreferrer" key={index} className="flex-1 min-w-[200px]">
-            <div className="glass-card rounded-[3rem] p-10 flex flex-col items-center justify-center text-center transition-all duration-500 interactive-element group">
-              <div className="w-16 h-16 relative mb-6 transition-all duration-500">
+          <Link href={con.link} target="_blank" rel="noopener noreferrer" key={index} className="flex-1 min-w-[180px]">
+            <div className="glass-card rounded-[3rem] p-8 flex flex-col items-center justify-center text-center transition-all duration-500 interactive-element group">
+              <div className="w-12 h-12 relative mb-4 transition-all duration-500">
                 <Image src={con.image} fill className="object-contain" alt={con.name} />
               </div>
-              <p className="text-slate-950 font-bold tracking-widest uppercase text-sm group-hover:text-primary-500 transition-colors">{con.name}</p>
+              <p className="text-white font-bold tracking-widest uppercase text-[10px] group-hover:text-gold transition-colors">{con.name}</p>
             </div>
           </Link>
         ))}
