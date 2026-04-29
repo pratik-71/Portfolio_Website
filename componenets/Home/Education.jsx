@@ -10,7 +10,7 @@ const Education = () => {
   const education = [
     {
       image: "/education/sahyog.jpeg",
-      marksheet: "/education/Bsc-IT MarkSheet.jpeg",
+      marksheet: "/education/Bsc-IT Marksheet.jpeg",
       name: "SAHYOG COLLEGE OF MANAGEMENT",
       program: "BACHELORS IN INFORMATION TECHNOLOGY",
       grade: "9.18 CGPA",
@@ -21,7 +21,7 @@ const Education = () => {
     },
     {
       image: "/education/abhinav.jpeg",
-      marksheet: "/education/12th MarkSheet.jpeg",
+      marksheet: "/education/12th Marksheet.jpeg",
       name: "ABHINAV GYAN MANDIR PRASHALA",
       program: "SCIENCE - HIGHER SECONDARY",
       grade: "65 %",
@@ -32,7 +32,7 @@ const Education = () => {
     },
     {
       image: "/education/ytps.jpeg",
-      marksheet: "/education/10th MarkSheet.jpg",
+      marksheet: "/education/10th Marksheet.jpg",
       name: "YADAVRAO TASGAONKAR SCHOOL",
       grade: "78 %",
       program: "CBSE SECONDARY EDUCATION",

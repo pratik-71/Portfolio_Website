@@ -5,10 +5,16 @@ import Image from "next/image";
 
 const ImageViewer = ({ isOpen, onClose, imageSrc, width = 800 }) => {
   const [mounted, setMounted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Reset loading state when image source changes or modal opens
+  useEffect(() => {
+    if (isOpen) setIsLoading(true);
+  }, [isOpen, imageSrc]);
 
   if (!isOpen || !mounted) return null;
 
@@ -22,13 +28,19 @@ const ImageViewer = ({ isOpen, onClose, imageSrc, width = 800 }) => {
         >
           &times;
         </button>
-        <div className="relative overflow-hidden flex justify-center items-center w-full rounded-xl border border-white/5 bg-black/50 p-2 shadow-inner">
+        <div className="relative overflow-hidden flex justify-center items-center w-full rounded-xl border border-white/5 bg-black/50 p-2 shadow-inner min-h-[300px] min-w-[300px]">
+            {isLoading && (
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-12 h-12 border-4 border-gold/20 border-t-gold rounded-full animate-spin" />
+              </div>
+            )}
             <Image
-            src={imageSrc}
-            alt="Document Preview"
-            width={width} // Using the width prop here
-            height={1000}
-            className="rounded-lg object-contain max-h-[75vh] w-auto shadow-md"
+              src={imageSrc}
+              alt="Document Preview"
+              width={width}
+              height={1000}
+              className={`rounded-lg object-contain max-h-[75vh] w-auto shadow-md transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+              onLoad={() => setIsLoading(false)}
             />
         </div>
         <a
