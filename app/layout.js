@@ -1,5 +1,6 @@
 
 import "./globals.css";
+import SmoothScroll from "@/componenets/SmoothScroll";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
