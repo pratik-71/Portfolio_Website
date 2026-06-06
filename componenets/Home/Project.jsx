@@ -20,9 +20,9 @@ const Project = () => {
 
   const projects = [
     {
-      image: "/projects/memories.png",
+      image: "/projects/icon.png",
       name: "MEMORIES: TIMELINE TRACKER",
-      technology: "REACT NATIVE, EXPO",
+      technology: "REACT NATIVE, EXPO, SUPABASE, AI, Tailwind CSS",
       description:
         "A premium iOS application for tracking life's timelines and milestones. Users can effortlessly create visual journals of their memories, track durations of important events, and maintain a aesthetic digital history.",
       link: "https://apps.apple.com/us/app/memories-timeline-tracker/id6758773374",
@@ -38,9 +38,9 @@ const Project = () => {
     {
       image: "/projects/2D RPG GAME.png",
       name: "MULTIPLAYER RPG GAME",
-      technology: "PHASER 3, SOCKET.IO, REACT JS",
+      technology: "PHASER 3, SOCKET.IO, REACT JS, NODE.JS",
       description:
-        "A 2D Multiplayer RPG built with Phaser 3 and Socket.io. Features real-time player movement, combat systems, and room-based matchmaking.",
+        "An immersive 2D Multiplayer RPG engineered with Phaser 3 and Socket.io for low-latency real-time synchronization. Features dynamic room-based matchmaking, an interactive combat system, seamless player movement, and robust server-side state management.",
       link: "https://github.com/pratik-71/2D_RPG.git",
     },
   ];
@@ -77,7 +77,7 @@ const Project = () => {
             key={index}
             ref={el => cardRefs.current[index] = el}
             data-idx={index}
-            className={`group glass-card rounded-[3.5rem] overflow-hidden flex flex-col transition-all duration-700 ease-out interactive-element border-white/5
+            className={`group glass-card rounded-[1.5rem] overflow-hidden flex flex-col transition-all duration-700 ease-out interactive-element border-white/5
               ${visible.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20 pointer-events-none'}
             `}
             style={{ transitionDelay: `${index * 100}ms` }}
@@ -87,6 +87,8 @@ const Project = () => {
                 src={pro.image}
                 fill
                 alt={pro.name}
+                unoptimized
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 onClick={() => openImageModal(pro.image)}
               />

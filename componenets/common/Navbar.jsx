@@ -81,7 +81,7 @@ const Navbar = () => {
             <button className="hover:text-gold duration-300 transition-colors flex items-center gap-1">
               Academics <FaAngleDown className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`absolute top-full right-0 mt-1 w-48 glass-card rounded-3xl overflow-hidden z-50 transition-all duration-300 origin-top-right ${isDropdownOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}>
+            <div className={`absolute top-full right-0 mt-1 w-48 bg-black/95 border border-white/10 backdrop-blur-3xl shadow-2xl rounded-3xl overflow-hidden z-[999] transition-all duration-300 origin-top-right ${isDropdownOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'}`}>
               <Link
                 href="#education"
                 className="block px-6 py-3 hover:bg-white/5 text-white/70 hover:text-gold transition-all duration-300 uppercase font-black italic text-xs tracking-widest"

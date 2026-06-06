@@ -39,6 +39,7 @@ const ImageViewer = ({ isOpen, onClose, imageSrc, width = 800 }) => {
               alt="Document Preview"
               width={width}
               height={1000}
+              unoptimized
               className={`rounded-lg object-contain max-h-[75vh] w-auto shadow-md transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
               onLoad={() => setIsLoading(false)}
             />
