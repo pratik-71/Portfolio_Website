@@ -14,6 +14,8 @@ const Skills = () => {
       { image: "/icons/react.png", name: "REACT NATIVE" },
     ],
     "BACKEND": [
+      { image: "/icons/python.png", name: "PYTHON" },
+      { image: "/icons/python.png", name: "DJANGO" },
       { image: "/icons/node.png", name: "NODE JS" },
       { image: "/icons/exress.png", name: "EXPRESS JS" },
       { image: "/icons/socket.svg", name: "SOCKET.IO" },
@@ -51,7 +53,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="flex flex-col items-center py-24 px-4 min-h-screen relative overflow-hidden">
+    <div className="flex flex-col items-center py-12 px-4 min-h-screen relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="text-center space-y-3 mb-12">
@@ -60,26 +62,26 @@ const Skills = () => {
       </div>
 
       <div className="w-full max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {Object.entries(skills_data).map(([category, skills]) => (
             <div
               key={category}
-              className="glass-card rounded-[3.5rem] p-8 flex flex-col items-center text-center group interactive-element"
+              className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] glass-card rounded-[3.5rem] p-8 flex flex-col items-center text-center group interactive-element"
             >
               <h2 className="text-2xl font-bold tracking-tighter text-white mb-6 uppercase leading-tight group-hover:text-gold transition-colors duration-300">
                 {category}
               </h2>
 
-              <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
                 {skills.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-row items-center gap-3 px-4 py-2.5 bg-white/5 rounded-full border border-white/10 hover:border-gold/30 transition-all duration-300 shadow-sm hover:shadow-gold-glow group/skill w-full sm:w-auto"
+                    className="flex flex-col items-center justify-center gap-2 p-2 bg-white/5 rounded-2xl border border-white/10 hover:border-gold/50 hover:bg-gold/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-gold-glow group/skill w-[80px] h-[80px]"
                   >
-                    <div className="relative w-7 h-7 flex items-center justify-center bg-white/10 rounded-full p-1.5 group-hover/skill:bg-white/20 transition-colors duration-300">
-                       <Image src={skill.image} fill alt={skill.name} className="object-contain p-1" />
+                    <div className="relative w-8 h-8 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110 group-hover/skill:rotate-3">
+                       <Image src={skill.image} fill alt={skill.name} className="object-contain" />
                     </div>
-                    <span className="text-xs font-bold tracking-wide text-white group-hover:text-gold transition-colors whitespace-nowrap">{skill.name}</span>
+                    <span className="text-[8px] font-black tracking-widest text-white/70 group-hover/skill:text-gold transition-colors text-center leading-tight">{skill.name}</span>
                   </div>
                 ))}
               </div>

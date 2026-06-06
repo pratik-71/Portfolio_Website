@@ -28,12 +28,12 @@ const Project = () => {
       link: "https://apps.apple.com/us/app/memories-timeline-tracker/id6758773374",
     },
     {
-      image: "/projects/shoe_shop.png",
-      name: "OXY SHOE ECOMMERCE",
-      technology: "TAILWIND CSS, REACT JS, NODE JS",
+      image: "/projects/Resume_maker.png",
+      name: "RESUMEFLOW: AI RESUME PLATFORM",
+      technology: "REACT, EXPRESS, SUPABASE, REDIS, KAFKA, SEO",
       description:
-        "A comprehensive shoe e-commerce platform with a modern frontend and robust backend. Features include size filtering, seamless checkout, and inventory management.",
-      link: "https://github.com/pratik-71/Shoes_Online_Shop",
+        "An AI-powered resume optimization platform that boosts ATS scores. Includes a browser extension that instantly auto-customizes resumes to match job descriptions, built with a secure, high-performance architecture.",
+      link: "https://jobsflow.works/",
     },
     {
       image: "/projects/2D RPG GAME.png",
@@ -62,7 +62,7 @@ const Project = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center py-24 px-4 relative overflow-hidden text-white">
+    <div className="flex flex-col items-center py-12 px-4 relative overflow-hidden text-white">
       {/* Ambient Glow */}
       <div className="ambient-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5" />
 
@@ -110,14 +110,16 @@ const Project = () => {
                 {pro.description}
               </p>
 
-              <a
-                href={pro.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3.5 bg-gold text-black rounded-[2rem] font-black tracking-widest text-center transition-all duration-300 hover:shadow-gold-glow uppercase text-xs"
-              >
-                {pro.link?.includes('github.com') ? 'Explore Code' : 'Launch Project'}
-              </a>
+              {pro.link && (
+                <a
+                  href={pro.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 bg-gold text-black rounded-[2rem] font-black tracking-widest text-center transition-all duration-300 hover:shadow-gold-glow uppercase text-xs inline-block"
+                >
+                  {pro.link.includes('github.com') ? 'Explore Code' : 'Launch Project'}
+                </a>
+              )}
             </div>
           </div>
         ))}

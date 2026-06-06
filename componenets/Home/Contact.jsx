@@ -27,7 +27,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center py-24 px-4 relative">
+    <div className="flex flex-col items-center py-12 px-4 relative">
       <div className="ambient-glow bottom-0 left-1/2 -translate-x-1/2 opacity-10" />
 
       <div className="text-center space-y-3 mb-12">

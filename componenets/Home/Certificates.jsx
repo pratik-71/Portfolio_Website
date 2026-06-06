@@ -38,7 +38,7 @@ const Certificates = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center py-24 px-4 relative overflow-hidden">
+    <div className="flex flex-col items-center py-12 px-4 relative overflow-hidden">
       {/* Background Section Glow */}
       <div className="ambient-glow top-1/2 left-1/4 opacity-5" />
 

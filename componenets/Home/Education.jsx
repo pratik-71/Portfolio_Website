@@ -1,16 +1,12 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
-import ImageViewer from "../common/ImageViewer";
+import React from "react";
 
 const Education = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedMarksheet, setSelectedMarksheet] = useState("");
 
   const education = [
     {
       image: "/education/sahyog.jpeg",
-      marksheet: "/education/Bsc-IT Marksheet.jpeg",
       name: "SAHYOG COLLEGE OF MANAGEMENT",
       program: "BACHELORS IN INFORMATION TECHNOLOGY",
       grade: "9.18 CGPA",
@@ -21,10 +17,9 @@ const Education = () => {
     },
     {
       image: "/education/abhinav.jpeg",
-      marksheet: "/education/12th Marksheet.jpeg",
       name: "ABHINAV GYAN MANDIR PRASHALA",
+      grade: "79 %",
       program: "SCIENCE - HIGHER SECONDARY",
-      grade: "65 %",
       startyear: "2018",
       endyear: "2020",
       description:
@@ -32,7 +27,6 @@ const Education = () => {
     },
     {
       image: "/education/ytps.jpeg",
-      marksheet: "/education/10th Marksheet.jpg",
       name: "YADAVRAO TASGAONKAR SCHOOL",
       grade: "78 %",
       program: "CBSE SECONDARY EDUCATION",
@@ -43,17 +37,8 @@ const Education = () => {
     },
   ];
 
-  const openMarksheetModal = (marksheetImage) => {
-    setSelectedMarksheet(marksheetImage);
-    setIsModalOpen(true);
-  };
-
-  const closeMarksheetModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div className="flex flex-col items-center py-24 px-4 relative overflow-hidden">
+    <div className="flex flex-col items-center py-12 px-4 relative overflow-hidden">
       {/* Background Section Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -78,29 +63,19 @@ const Education = () => {
                 {edu.name}
               </h3>
               <p className="text-white font-bold text-sm tracking-wide uppercase">{edu.program}</p>
-              <div className="inline-block px-4 py-1.5 bg-gold/10 rounded-full border border-gold/20">
-                 <span className="text-gold font-bold text-xs">GRADE: {edu.grade}</span>
-              </div>
+              {edu.grade && (
+                <div className="inline-block px-4 py-1.5 bg-gold/10 rounded-full border border-gold/20">
+                   <span className="text-gold font-bold text-xs">GRADE: {edu.grade}</span>
+                </div>
+              )}
               <p className="text-white/80 text-sm font-medium leading-relaxed pt-2">
                 {edu.description}
               </p>
             </div>
 
-            <button
-              onClick={() => openMarksheetModal(edu.marksheet)}
-              className="w-full mt-8 py-3.5 bg-gold/10 hover:bg-gold text-gold hover:text-white rounded-[2rem] font-bold tracking-widest transition-all duration-300 border border-gold/20 uppercase text-[10px]"
-            >
-              view
-            </button>
           </div>
         ))}
       </div>
-      <ImageViewer
-        isOpen={isModalOpen}
-        onClose={closeMarksheetModal}
-        imageSrc={selectedMarksheet}
-        width={400}
-      />
     </div>
   );
 };

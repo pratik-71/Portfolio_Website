@@ -1,6 +1,5 @@
 "use client";
 import React, { useCallback } from "react";
-import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaCode } from "react-icons/fa";
 
@@ -67,7 +66,8 @@ const StatCounter = ({ value, label, suffix = "" }) => {
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      setCount(Math.floor(progress * end));
+      const currentVal = progress * end;
+      setCount(Number.isInteger(end) ? Math.floor(currentVal) : currentVal.toFixed(1));
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
@@ -93,6 +93,16 @@ const PersonalInfo = () => {
     window.open("/Pratik Dabhade.pdf", "_blank");
   }, []);
 
+  const [titleIndex, setTitleIndex] = React.useState(0);
+  const titles = ["FULL STACK DEVELOPER", "CTO", "SOLOPRENEUR"];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative min-h-[85vh] flex items-center justify-center px-4 overflow-hidden pt-20">
       {/* Background Decorative Glow */}
@@ -103,11 +113,6 @@ const PersonalInfo = () => {
           
           {/* Left Content */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass-card rounded-full border-gold/20 animate-pulse">
-               <div className="w-2 h-2 bg-gold rounded-full" />
-               <span className="text-[10px] font-black tracking-widest text-gold uppercase">Available for work</span>
-            </div>
-
             <div className="space-y-2">
               <h1 className="text-5xl md:text-6xl lg:text-8xl font-[900] tracking-tighter leading-[0.9] text-white uppercase">
                 PRATIK <br/>
@@ -115,31 +120,33 @@ const PersonalInfo = () => {
               </h1>
             </div>
 
-            <div className="inline-flex items-center glass-card px-5 py-2.5 rounded-[3.5rem] text-lg md:text-xl font-bold tracking-tight border-gold/10">
-              <span className="text-white/50 mr-2 lowercase tracking-wide font-normal italic">I am a</span>
-              <span className="text-gold">
-                <TypeAnimation
-                  sequence={[
-                    "FULL STACK DEVELOPER",
-                    2000,
-                    "CTO", 
-                    2000,
-                    "PROBLEM SOLVER",
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  style={{ display: "inline-block" }}
-                  repeat={Infinity}
-                />
+            <div className="inline-flex items-center text-2xl md:text-4xl font-black tracking-tight mt-2">
+              <span className="text-white mr-3 uppercase tracking-wide">I AM A</span>
+              <span className="text-gold relative h-[1.2em] min-w-[280px] sm:min-w-[320px] overflow-hidden inline-block text-left">
+                {titles.map((title, i) => {
+                  let positionClass = '';
+                  if (i === titleIndex) {
+                    positionClass = 'translate-y-0 opacity-100';
+                  } else if (i === (titleIndex - 1 + titles.length) % titles.length) {
+                    positionClass = 'translate-y-full opacity-0';
+                  } else {
+                    positionClass = '-translate-y-full opacity-0';
+                  }
+                  
+                  return (
+                    <span
+                      key={title}
+                      className={`absolute left-0 top-0 w-full transition-all duration-500 ease-in-out ${positionClass}`}
+                    >
+                      {title}
+                    </span>
+                  );
+                })}
               </span>
             </div>
 
-            <p className="text-base md:text-lg text-white/60 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Crafting high-velocity digital experiences with 
-              <span className="text-white mx-1.5">Modern Tech Stacks</span> 
-              and a passion for 
-              <span className="text-white mx-1.5">Visual Excellence.</span>
+            <p className="text-sm md:text-base text-white/70 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Results-driven Full Stack Developer with experience building scalable, robust, and high-performance digital products and real-time systems. Skilled in developing end-to-end solutions, optimizing system performance, improving user experience, and delivering business-focused applications. Strong problem-solving abilities with a focus on scalability, reliability, and impactful product development.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
@@ -161,8 +168,8 @@ const PersonalInfo = () => {
           <div className="lg:col-span-5 order-1 lg:order-2 flex flex-col items-center lg:items-end gap-6">
              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 w-full sm:w-auto">
                 {[
-                  { label: "PROJECTS", value: 15, suffix: "" },
-                  { label: "EXPERIENCE", value: 1, suffix: " YEAR" },
+                  { label: "PROJECTS", value: 15, suffix: "+" },
+                  { label: "EXPERIENCE", value: 1.2, suffix: " YEARS" },
                   { label: "COMMITS", value: 500, suffix: "+" }
                 ].map((stat, i) => (
                   <div key={i} className="glass-card p-6 rounded-[2.5rem] border-white/5 hover:border-gold/20 transition-all duration-500 group min-w-[200px]">

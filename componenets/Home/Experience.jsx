@@ -46,7 +46,7 @@ const Experience = () => {
 ];
 
   return (
-    <div className="flex flex-col items-center py-24 gap-12 px-4 min-h-screen relative overflow-hidden">
+    <div className="flex flex-col items-center py-12 gap-12 px-4 min-h-screen relative overflow-hidden">
       {/* Background Section Glow */}
       <div className="absolute top-1/4 -right-48 w-96 h-96 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
