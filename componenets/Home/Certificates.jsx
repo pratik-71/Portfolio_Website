@@ -47,71 +47,32 @@ const Certificates = () => {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white capitalize lowercase"><span className="text-gold">CERTIFICATES</span></h1>
       </div>
 
-      <div className="relative flex items-center justify-center w-full max-w-6xl min-h-[400px] select-none" style={{ perspective: 1500 }}>
-        {/* Left Arrow */}
-        <button
-          className="absolute left-4 md:left-10 z-30 w-14 h-14 bg-gold text-black rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto"
-          onClick={handleLeft}
-        >
-          <FaChevronLeft className="text-xl" />
-        </button>
-
-        {/* 3D Carousel Cards */}
-        <div className="relative w-full flex items-center justify-center h-[400px]" style={{ transformStyle: 'preserve-3d' }}>
-          {positions.map((pos) => {
-            const idx = getCertIdx(pos.offset);
-            const isCenter = pos.offset === 0;
-            return (
-              <div
-                key={`${idx}-${pos.offset}`}
-                className={`absolute w-[280px] md:w-[320px] aspect-[4/5] glass-card rounded-[3rem] p-3 flex flex-col transition-all duration-700 ease-out cursor-pointer
-                   ${isCenter ? 'border-gold/50' : ''}
-                `}
-                style={{
-                  transform: `translateX(${pos.x}px) translateZ(${pos.z}px) rotateY(${pos.rotate}deg) scale(${pos.scale})`,
-                  opacity: pos.opacity,
-                  zIndex: 20 - Math.abs(pos.offset),
-                  pointerEvents: isCenter ? 'auto' : 'none',
-                }}
-                onClick={() => isCenter && openMarksheetModal(Certificate[idx].image)}
-              >
-                <div className="relative flex-1 rounded-[2.5rem] overflow-hidden mb-6 border border-white/10">
-                  <Image
-                    src={Certificate[idx].image}
-                    alt={Certificate[idx].name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gold/5" />
-                </div>
-                
-                <div className="px-4 pb-6 text-center space-y-4">
-                   <h3 className={`font-bold tracking-tighter leading-tight capitalize lowercase transition-colors duration-300
-                    ${isCenter ? 'text-gold text-xl' : 'text-white/40 text-base'}`}
-                  >
-                    {Certificate[idx].name}
-                  </h3>
-                  {isCenter && (
-                    <button
-                      className="w-full py-3 bg-gold text-black rounded-2xl font-bold tracking-widest text-[10px] transition-all duration-300 capitalize lowercase shadow-gold-glow"
-                      onClick={() => openMarksheetModal(Certificate[idx].image)}
-                    >
-                      view
-                    </button>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Right Arrow */}
-        <button
-          className="absolute right-4 md:right-10 z-30 w-14 h-14 bg-gold text-black rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-300 pointer-events-auto"
-          onClick={handleRight}
-        >
-          <FaChevronRight className="text-xl" />
-        </button>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-5xl mx-auto">
+        {Certificate.map((cert, index) => (
+          <div 
+            key={index}
+            className="group relative w-full aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-2xl bg-black border border-white/20 transition-all duration-500 hover:scale-[1.02] hover:border-gold/50"
+            onClick={() => openMarksheetModal(cert.image)}
+          >
+            <Image
+              src={cert.image}
+              alt={cert.name}
+              fill
+              unoptimized
+              className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
+            />
+            
+            {/* Elegant Hover Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 pointer-events-none">
+               <h3 className="text-2xl sm:text-3xl font-black tracking-tighter text-white capitalize lowercase translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                 {cert.name}
+               </h3>
+               <p className="text-gold text-xs font-bold tracking-widest mt-3 translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-75 uppercase">
+                 View Full Credential →
+               </p>
+            </div>
+          </div>
+        ))}
       </div>
 
       <ImageViewer
