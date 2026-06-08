@@ -47,7 +47,7 @@ const ImageViewer = ({ isOpen, onClose, imageSrc, width = 800 }) => {
         <a
           href={imageSrc}
           download
-          className="bg-gold text-black font-bold rounded-xl px-10 py-4 shadow-gold-glow hover:shadow-gold-glow-strong hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-xs"
+          className="bg-gold text-black font-bold rounded-xl px-10 py-4 shadow-gold-glow hover:shadow-gold-glow-strong hover:-translate-y-1 transition-all duration-300 capitalize lowercase tracking-widest text-xs"
         >
           Download Document
         </a>

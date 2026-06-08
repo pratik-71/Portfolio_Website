@@ -51,7 +51,7 @@ const Experience = () => {
       <div className="absolute top-1/4 -right-48 w-96 h-96 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="text-center space-y-3">
-        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Career Journey</h2>
+        <h2 className="text-gold font-bold tracking-widest capitalize lowercase text-xs">Career Journey</h2>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white">REMARKABLE <span className="text-gold">EXPERIENCE</span></h1>
       </div>
       
@@ -87,7 +87,7 @@ const Experience = () => {
                        </div>
                        <div className="flex-1">
                           <span className="text-gold text-sm font-bold tracking-widest">{data.date}</span>
-                          <h2 className="text-xl font-bold tracking-tighter text-white  transition-colors duration-300 uppercase leading-none mt-1">
+                          <h2 className="text-xl font-bold tracking-tighter text-white  transition-colors duration-300 capitalize lowercase leading-none mt-1">
                             {data.company}
                           </h2>
                           <p className="text-white/80 font-bold text-base mt-1">
@@ -110,7 +110,7 @@ const Experience = () => {
                     
                     <button
                       onClick={e => { e.stopPropagation(); openMarksheetModal(data.certificate); }}
-                      className="w-full py-3 bg-gold/10 hover:bg-gold text-gold hover:text-white rounded-2xl font-bold tracking-widest transition-all duration-300 border border-gold/20 uppercase text-[10px]"
+                      className="w-full py-3 bg-gold text-black hover:bg-white hover:text-black rounded-2xl font-bold tracking-widest transition-all duration-300 capitalize lowercase text-[10px] shadow-gold-glow hover:shadow-gold-glow-strong"
                     >
                       View Credential
                     </button>

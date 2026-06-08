@@ -5,9 +5,9 @@ import React from 'react';
 const Contact = () => {
   const contacts = [
     {
-      name: "WHATSAPP",
-      image: "/icons/whatsapp.png",
-      link: "https://wa.me/9146032029", 
+      name: "X (TWITTER)",
+      image: "/icons/x.svg",
+      link: "https://x.com/DabhadePra24038", 
     },
     {
       name: "GMAIL",
@@ -31,8 +31,8 @@ const Contact = () => {
       <div className="ambient-glow bottom-0 left-1/2 -translate-x-1/2 opacity-10" />
 
       <div className="text-center space-y-3 mb-12">
-        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Get In Touch</h2>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase sm:leading-none">Direct <span className="text-gold">Channels</span></h1>
+        <h2 className="text-gold font-bold tracking-widest capitalize lowercase text-xs">Get In Touch</h2>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white capitalize lowercase sm:leading-none">DIRECT <span className="text-gold">CHANNELS</span></h1>
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8 max-w-5xl mx-auto w-full">
@@ -42,7 +42,7 @@ const Contact = () => {
               <div className="w-12 h-12 relative mb-4 transition-all duration-500">
                 <Image src={con.image} fill className="object-contain" alt={con.name} />
               </div>
-              <p className="text-white font-bold tracking-widest uppercase text-[10px] group-hover:text-gold transition-colors">{con.name}</p>
+              <p className="text-white font-bold tracking-widest capitalize lowercase text-[10px] group-hover:text-gold transition-colors">{con.name}</p>
             </div>
           </Link>
         ))}

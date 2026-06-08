@@ -19,7 +19,19 @@ export default function Home() {
       <div className="relative z-10 w-full min-h-screen">
         <Navbar />
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Personal Brand Image Background */}
+        <div 
+          className="fixed top-0 right-0 h-[100vh] w-[100vw] md:w-[70vw] lg:w-[60vw] opacity-[0.55] md:opacity-[0.70] pointer-events-none mix-blend-luminosity z-0"
+          style={{
+            backgroundImage: "url('/me.jpeg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center right',
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 90%)',
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,1) 15%, rgba(0,0,0,0) 90%)',
+          }}
+        />
+
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <section id="about" className="py-12">
             <Personal_info />
           </section>

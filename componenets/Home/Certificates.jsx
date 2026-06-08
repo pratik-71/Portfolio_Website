@@ -43,8 +43,8 @@ const Certificates = () => {
       <div className="ambient-glow top-1/2 left-1/4 opacity-5" />
 
       <div className="text-center space-y-3 mb-12">
-        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Recognition</h2>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase">Expert <span className="text-gold">Credentials</span></h1>
+        <h2 className="text-gold font-bold tracking-widest capitalize lowercase text-xs">Recognition</h2>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white capitalize lowercase"><span className="text-gold">CERTIFICATES</span></h1>
       </div>
 
       <div className="relative flex items-center justify-center w-full max-w-6xl min-h-[400px] select-none" style={{ perspective: 1500 }}>
@@ -86,14 +86,14 @@ const Certificates = () => {
                 </div>
                 
                 <div className="px-4 pb-6 text-center space-y-4">
-                   <h3 className={`font-bold tracking-tighter leading-tight uppercase transition-colors duration-300
+                   <h3 className={`font-bold tracking-tighter leading-tight capitalize lowercase transition-colors duration-300
                     ${isCenter ? 'text-gold text-xl' : 'text-white/40 text-base'}`}
                   >
                     {Certificate[idx].name}
                   </h3>
                   {isCenter && (
                     <button
-                      className="w-full py-3 bg-gold text-black rounded-2xl font-bold tracking-widest text-[10px] transition-all duration-300 uppercase shadow-gold-glow"
+                      className="w-full py-3 bg-gold text-black rounded-2xl font-bold tracking-widest text-[10px] transition-all duration-300 capitalize lowercase shadow-gold-glow"
                       onClick={() => openMarksheetModal(Certificate[idx].image)}
                     >
                       view

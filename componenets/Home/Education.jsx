@@ -58,11 +58,11 @@ const Education = () => {
             </div>
 
             <div className="flex-1 space-y-4">
-              <span className="text-gold text-xs font-bold tracking-widest uppercase">{edu.startyear} — {edu.endyear}</span>
-              <h3 className="text-xl font-bold tracking-tighter text-white uppercase leading-tight group-hover:text-gold transition-colors duration-300">
+              <span className="text-gold text-xs font-bold tracking-widest capitalize lowercase">{edu.startyear} — {edu.endyear}</span>
+              <h3 className="text-xl font-bold tracking-tighter text-white capitalize lowercase leading-tight group-hover:text-gold transition-colors duration-300">
                 {edu.name}
               </h3>
-              <p className="text-white font-bold text-sm tracking-wide uppercase">{edu.program}</p>
+              <p className="text-white font-bold text-sm tracking-wide capitalize lowercase">{edu.program}</p>
               {edu.grade && (
                 <div className="inline-block px-4 py-1.5 bg-gold/10 rounded-full border border-gold/20">
                    <span className="text-gold font-bold text-xs">GRADE: {edu.grade}</span>

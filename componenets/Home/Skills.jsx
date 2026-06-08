@@ -57,8 +57,8 @@ const Skills = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="text-center space-y-3 mb-12">
-        <h2 className="text-gold font-bold tracking-widest uppercase text-xs">Expertise</h2>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase">Mastery & <span className="text-gold">Stacks</span></h1>
+        <h2 className="text-gold font-bold tracking-widest capitalize lowercase text-xs">Expertise</h2>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white capitalize lowercase">MASTERY & <span className="text-gold">STACKS</span></h1>
       </div>
 
       <div className="w-full max-w-7xl">
@@ -66,22 +66,22 @@ const Skills = () => {
           {Object.entries(skills_data).map(([category, skills]) => (
             <div
               key={category}
-              className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] glass-card rounded-[3.5rem] p-8 flex flex-col items-center text-center group interactive-element"
+              className="w-full flex flex-col items-center text-center group mb-8"
             >
-              <h2 className="text-2xl font-bold tracking-tighter text-white mb-6 uppercase leading-tight group-hover:text-gold transition-colors duration-300">
+              <h2 className="text-xl font-black tracking-widest text-gold mb-6 capitalize lowercase leading-tight border-b-2 border-gold/20 pb-2 px-8">
                 {category}
               </h2>
 
-            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap justify-center gap-4 max-w-4xl">
                 {skills.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center justify-center gap-2 p-2 bg-white/5 rounded-2xl border border-white/10 hover:border-gold/50 hover:bg-gold/5 transition-all duration-500 hover:-translate-y-1 hover:shadow-gold-glow group/skill w-[80px] h-[80px]"
+                    className="flex items-center gap-3 px-5 py-2.5 bg-black rounded-full border border-white/20 hover:border-gold hover:bg-black transition-all duration-500 hover:-translate-y-1 hover:shadow-gold-glow group/skill"
                   >
-                    <div className="relative w-8 h-8 flex items-center justify-center transition-transform duration-500 group-hover/skill:scale-110 group-hover/skill:rotate-3">
-                       <Image src={skill.image} fill alt={skill.name} className="object-contain" />
+                    <div className="relative w-7 h-7 flex items-center justify-center  rounded-full shadow-inner overflow-hidden">
+                       <Image src={skill.image} fill alt={skill.name} className="object-contain p-1" />
                     </div>
-                    <span className="text-[8px] font-black tracking-widest text-white/70 group-hover/skill:text-gold transition-colors text-center leading-tight">{skill.name}</span>
+                    <span className="text-[11px] font-bold tracking-widest text-white/90 group-hover/skill:text-gold transition-colors text-center leading-tight">{skill.name}</span>
                   </div>
                 ))}
               </div>
