@@ -29,11 +29,11 @@ const Project = () => {
     },
     {
       image: "/projects/Resume_maker.png",
-      name: "RESUMEFLOW: AI RESUME PLATFORM",
+      name: "ResumeAlly",
       technology: "REACT, EXPRESS, SUPABASE, REDIS, KAFKA, SEO",
       description:
         "An AI-powered resume optimization platform that boosts ATS scores. Includes a browser extension that instantly auto-customizes resumes to match job descriptions, built with a secure, high-performance architecture.",
-      link: "https://jobsflow.works/",
+      link: "https://resumeally.in/",
     },
     {
       image: "/projects/2D RPG GAME.png",
